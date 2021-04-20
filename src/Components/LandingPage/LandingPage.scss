@@ -1,0 +1,93 @@
+$bg-primary: #59bdee;
+$btn-hover: #313131;
+$btn-hover-text: #FFFFFF;
+
+
+.main-img {
+    width: 100%;
+    background-image: url('../../Images/landingbg_nof.png');
+    height: 35vw;
+    width: 100%;
+    background-size: cover;
+}
+
+.centered {
+    position: relative;
+    top: 33%;
+    left: 50%;
+    transform: translate(-50%, -343%);
+}
+
+.centered-below {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-56%, -50%);
+}
+
+
+.centered-btn {
+    position: absolute;
+    top: 200%;
+    left: 68%;
+    transform: translate(-50%, -50%);
+}
+
+.company-tag {
+    font-size: 20px;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.company-name {
+    font-size: 7vw;
+    line-height: 3.9;
+    margin-bottom: -11vw;
+    color: white;
+    font-family: 'Roboto Condensed';
+}
+
+.company-btn {
+    font-weight: bold;
+    border: none;
+    color: black;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 31px;
+    width: 360px;
+    border-radius: 8px;
+    background-color: white;
+    margin-left: 58vw;
+    margin-top: 10vw;
+}
+
+.company-btn:hover {
+    background-color: $btn-hover;
+    color: $btn-hover-text;
+}
+
+@media only screen and (max-width:768px) {
+
+    .company-name {
+        width: 103vw;
+        height: 74vw;
+    }
+
+    .company-tag {
+        display: none;
+    }
+
+    .company-btn {
+        margin-left: 0vw;
+        margin-top: 19vw;
+    }
+    .main-img {
+        background-image: none;
+    }
+    hr{
+        display: none;
+    }
+
+
+}

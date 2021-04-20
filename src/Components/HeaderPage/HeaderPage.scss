@@ -1,0 +1,22 @@
+.header-details {
+    margin-left: -137px;
+    margin-right: 131px;
+
+}
+
+@media only screen and (max-width:768px) {
+
+    .header-info {
+        display: none;
+    }
+
+    hr {
+        display: none;
+    }
+
+
+}
+
+// .header-info{
+//     background-color: #99a6ac;
+// }

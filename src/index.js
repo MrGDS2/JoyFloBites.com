@@ -1,13 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import LandingPage from '../src/Components/LandingPage/LandingPage';
+import NavigationBar from '../src/Components/NavigationBar/NavigationBar';
+import './App.scss';
+import HeaderPage from './Components/HeaderPage/HeaderPage';
 import reportWebVitals from './reportWebVitals';
 
+
+const routing = (
+  <Router>
+          <HeaderPage/>
+           <NavigationBar/>
+          <Switch>
+                  <Route path='/' exact component={LandingPage} />
+                  {/* <Route path='/About' exact component={AboutPage} />
+                  <Route path='/Services' exact component={ServicePage} />
+                  <Route path='/Contact' exact component={ContactPage} /> */}
+          </Switch>
+          
+        
+  </Router>
+
+)
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+routing,
   document.getElementById('root')
 );
 
