@@ -1,6 +1,6 @@
 $bg-primary: #59bdee;
-$btn-hover: #313131;
-$btn-hover-text: #FFFFFF;
+$btn-hover: #000021;
+$btn-hover-text: white;
 
 
 .main-img {
@@ -50,7 +50,7 @@ $btn-hover-text: #FFFFFF;
 .company-btn {
     font-weight: bold;
     border: none;
-    color: black;
+    color: #000021;
     padding: 12px;
     text-align: center;
     text-decoration: none;
@@ -82,10 +82,12 @@ $btn-hover-text: #FFFFFF;
         margin-left: 0vw;
         margin-top: 19vw;
     }
+
     .main-img {
         background-image: none;
     }
-    hr{
+
+    hr {
         display: none;
     }
 

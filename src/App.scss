@@ -1,7 +1,8 @@
 @import "~bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
 
-$font-family: 'Montserrat', sans-serif;
+$font-family: 'Montserrat',
+sans-serif;
 
 html,
 body {
@@ -11,12 +12,12 @@ body {
     padding: 0px;
     overflow-x: hidden;
     font-family: $font-family;
-   background-image: url('../src/Images/brown_wp.png');
+    background-image: url('../src/Images/brown_wp.png');
 
 }
 
 .navbar-light .navbar-nav .nav-link {
     color: white;
-    
-}
+    font-size: 20px;
 
+}
