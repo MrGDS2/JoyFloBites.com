@@ -11,6 +11,8 @@
     "react-bootstrap": "^1.5.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-rating-stars-component": "^2.2.0",
+    "react-responsive-carousel": "^3.2.18",
     "react-router-dom": "^5.2.0",
     "react-schedule-calendar": "^0.22.8",
     "react-scripts": "4.0.3",

@@ -1,0 +1,58 @@
+.pop-card {
+    background-color: whitesmoke;
+    opacity: 90%;
+    width: 18rem;
+}
+
+.pop-title {
+    color: #000021;
+}
+
+.react-stars {
+    margin-left: 1vw;
+}
+
+.popular-products {
+    background-color: white;
+    margin-top: 6vw;
+}
+
+@media only screen and (max-width:991px) {
+
+    .pop-card{
+        width: 57vw;
+    }
+
+    .popular-products {
+        margin-top: 70vw;
+    }
+
+    .react-stars {
+
+        margin-left: 14vw;
+    }
+
+
+}
+
+@media only screen and (max-width:768px) {
+
+    .pop-card{
+        width: 57vw;
+    }
+
+
+    .card-col{
+        margin: 8vw;
+    }
+    .popular-products {
+        margin-top: 70vw;
+    }
+
+    .react-stars {
+
+        margin-left: 13vw;
+    }
+
+
+}

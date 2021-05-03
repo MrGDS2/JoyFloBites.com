@@ -40,11 +40,7 @@ $btn-hover-text: white;
 }
 
 .company-name {
-    font-size: 7vw;
-    line-height: 3.9;
-    margin-bottom: -11vw;
-    color: white;
-    font-family: 'Roboto Condensed';
+    width: 45vw;
 }
 
 .company-btn {
@@ -59,7 +55,7 @@ $btn-hover-text: white;
     border-radius: 8px;
     background-color: white;
     margin-left: 58vw;
-    margin-top: 10vw;
+
 }
 
 .company-btn:hover {
@@ -67,10 +63,11 @@ $btn-hover-text: white;
     color: $btn-hover-text;
 }
 
+
 @media only screen and (max-width:768px) {
 
     .company-name {
-        width: 103vw;
+        width: 87vw;
         height: 74vw;
     }
 
@@ -79,8 +76,9 @@ $btn-hover-text: white;
     }
 
     .company-btn {
-        margin-left: 0vw;
-        margin-top: 19vw;
+       margin-left: 14vw;
+       margin-top: 4vw;
+       width: 79vw;
     }
 
     .main-img {

@@ -1,5 +1,9 @@
+$btn-hover: #000021;
+$btn-hover-text: white;
+
 .about-description {
-    background-color: white;
+    background-image: url('../../Images/flour_spoon_flo_table.jpg');
+    background-size: cover;
 }
 
 .flourlogo {
@@ -7,23 +11,37 @@
 }
 
 .about-text {
-    color: black;
+    color: white;
 
 }
 
 .about-title {
     font-size: 4vw;
+    color: white;
 }
 
 .about-btn {
     font-weight: bold;
     border: none;
-    color: white;
+    color: #000021;
     padding: 12px;
     text-align: center;
     text-decoration: none;
     font-size: 26px;
     width: 242px;
     border-radius: 8px;
-    background-color: #000021;
+    background-color: white;
+}
+
+.about-btn:hover {
+    background-color: $btn-hover;
+    color: $btn-hover-text;
+}
+
+@media only screen and (max-width:768px) {
+
+.about-title {
+    font-size: 10vw;
+    color: white;
+}
 }

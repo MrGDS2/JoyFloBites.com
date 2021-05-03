@@ -1,8 +1,7 @@
 
-import React, { useRef } from 'react';
+import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
 const NavigationBar = () => {
 
 
@@ -12,7 +11,7 @@ const NavigationBar = () => {
             <div className="pt-4 container  nav-top">
 
                 <Navbar expand="lg">
-
+                <Navbar.Brand href="/"></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ml-auto mx-auto nav" >
