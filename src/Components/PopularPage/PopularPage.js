@@ -26,7 +26,7 @@ const PopularPage = () => {
                         <div className="col-md-12 mt-5 mb-5">
                              <div className="row ml-4" >
                                  <div className="col-lg-4 card-col">
-                                 <Card className="pop-card " >
+                                 <Card className="pop-card" >
                                 <Card.Img variant="top" src={FlourLogo} />
                                 <Card.Body>
                                     <Card.Title>Card Title</Card.Title>
