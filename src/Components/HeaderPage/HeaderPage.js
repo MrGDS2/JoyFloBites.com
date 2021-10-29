@@ -19,7 +19,7 @@ const HeaderPage = () => {
                     <div className="col-md-3 header-details"><TiLocation />Location</div>
                     <div className="col-md-2 header-details"><FaCookieBite /></div>
                     <div className="col-md-2 header-details">email</div>
-                    <div className="col-md-1 header-details"><FaTwitter/> &nbsp;<FaInstagram /> &nbsp;<ImFacebook /></div>
+                    <div className="col-md-1 header-details"><FaTwitter/> &nbsp;<FaInstagram /> <ImFacebook /></div>
                 </div>
 
             </div>
