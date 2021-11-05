@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import LandingPage from '../src/Components/LandingPage/LandingPage';
 import ProductsPage from '../src/Components/ProductPage/ProductPage';
+import ItemPage from '../src/Components/ItemPurchase/ItemPurchase';
 import NavigationBar from '../src/Components/NavigationBar/NavigationBar';
 import './App.scss';
 import HeaderPage from './Components/HeaderPage/HeaderPage';
@@ -16,6 +17,7 @@ const routing = (
           <Switch>
                   <Route path='/' exact component={LandingPage} />
                   <Route path='/Products' exact component={ProductsPage} />
+                  <Route path='/Item' exact component={ItemPage} />
                   {/* <Route path='/About' exact component={AboutPage} />
                   <Route path='/Services' exact component={ServicePage} />
                   <Route path='/Contact' exact component={ContactPage} /> */}

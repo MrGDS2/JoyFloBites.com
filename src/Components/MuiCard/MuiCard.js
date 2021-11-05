@@ -4,7 +4,7 @@ import FlourLogo from '../../Images/joyflo-bites-v3.png';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CgInstagram } from 'react-icons/cg';
+import { GrFavorite, GrShareOption, GrShop } from 'react-icons/gr';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
 export default function MultiActionAreaCard() {
@@ -28,8 +28,15 @@ export default function MultiActionAreaCard() {
       </CardActionArea>
       <CardActions>
         <Button size="medium" color="primary">
-        Share 
-        </Button><CgInstagram/>
+            <GrShareOption/>
+        </Button>
+        <Button size="small" color="primary">
+            <GrFavorite/>
+        </Button>
+        <Button size="small" color="primary">
+            <GrShop/>
+        </Button>
+
       </CardActions>
     </Card>
   );

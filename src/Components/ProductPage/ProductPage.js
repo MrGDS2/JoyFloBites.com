@@ -1,8 +1,7 @@
 import React ,{useState,useEffect} from 'react';
-
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import ProductCard from "../MuiCard/MuiCard.js"
+import ProductCard from "../MuiCard/MuiCard.js";
 import './ProductPage.scss';
 
 const ProductsPage = () => {
