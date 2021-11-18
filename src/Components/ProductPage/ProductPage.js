@@ -1,4 +1,5 @@
 import React ,{useState,useEffect} from 'react';
+import firebase from '../../Firebase';
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ProductCard from "../MuiCard/MuiCard.js";
@@ -6,9 +7,22 @@ import './ProductPage.scss';
 
 const ProductsPage = () => {
 
-    const productNames = ["Cookies", "Cakes", "Pies", "More"];
 
+    const [name, setName] = useState('');
+    const [image, setImage] = useState('');
+    const [description, setDescription] = useState('');
+    const [show, setShowName] = useState('');
 
+  useEffect(() => {
+   firebase.database().ref("Chocolate Chip").once("value", snapshot => {
+        setName(snapshot.child("name").val());
+        setImage(snapshot.child("image").val());
+        setDescription(snapshot.child("description").val()); 
+      });
+
+    console.log("name =>" + name)
+
+}, []);
 
     return (
         <React.Fragment>
@@ -34,24 +48,26 @@ const ProductsPage = () => {
                            <h1 className="product-title text-center">Cookies</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {productNames.map((object, i) => <ProductCard obj={object} key={i} />)}
+                              
+                              <ProductCard name={name} img={image} />
+                            
                             </div>
 
                             <h1 className="product-title text-center">Cakes</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {productNames.map((object, i) => <ProductCard obj={object} key={i} />)}
+                            {/* {productNames.map((object, i) => <ProductCard obj={object} key={i} />)} */}
                             </div>
 
                             <h1 className="product-title text-center">Pies</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {productNames.map((object, i) => <ProductCard obj={object} key={i} />)}
+                            {/* {productNames.map((object, i) => <ProductCard obj={object} key={i} />)} */}
                             </div>
                             <h1 className="product-title text-center">More</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {productNames.map((object, i) => <ProductCard obj={object} key={i} />)}
+                            {/* {productNames.map((object, i) => <ProductCard obj={object} key={i} />)} */}
                             </div>
                         </div>
                     </div>

@@ -39,7 +39,7 @@ const ItemPurchase = () => {
                                </div>
                          <div className="row mt-5 ">
                                <div className="col-md-12 mb-5">
-                           <Button variant="outline-light">Order Today</Button>
+                           <button className="order-btn">Order Today</button>
                                </div>
                                </div>
                </div>

@@ -1,6 +1,9 @@
+$bg-primary: #59bdee;
+$btn-hover: white;
+$btn-hover-text: black;
+
 .item-info{
     background-color:black;
-    border-radius: 25%;
 }
 
 #item-img{
@@ -13,4 +16,25 @@ color: whitesmoke;
 
 .item-ingredients{
 color: whitesmoke;
+}
+
+.order-btn {
+    font-weight: bold;
+    border: 2px 2px 2px 2px 2px#FFFFFF;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 31px;
+    width: 360px;
+    border-radius: 8px;
+    background-color: black;
+   
+
+}
+
+
+.order-btn:hover {
+    background-color: $btn-hover;
+    color: $btn-hover-text;
 }

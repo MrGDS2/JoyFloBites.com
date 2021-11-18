@@ -7,19 +7,20 @@ import Typography from '@mui/material/Typography';
 import { GrFavorite, GrShareOption, GrShop } from 'react-icons/gr';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
-export default function MultiActionAreaCard() {
+export default function MultiActionAreaCard(props) {
+
   return (
     <Card className="mr-5 ml-4 mt-5">
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={FlourLogo}
+          image={props.img}
           alt="Product"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Name of Product
+           {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
            Description
