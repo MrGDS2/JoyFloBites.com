@@ -7,20 +7,98 @@ import './ProductPage.scss';
 
 const ProductsPage = () => {
 
+                   /**Cookies**/    
+//Chocolatechip
+    const [nameCC, setNameCC] = useState('');
+    const [imageCC, setImageCC] = useState('');
+    const [descriptionCC, setDescriptionCC] = useState('');
+ 
 
-    const [name, setName] = useState('');
-    const [image, setImage] = useState('');
-    const [description, setDescription] = useState('');
-    const [show, setShowName] = useState('');
+//Peanut butter chocolate chip
+    const [namePBCC, setNamePBCC] = useState('');
+    const [imagePBCC, setImagePBCC] = useState('');
+    const [descriptionPBCC, setDescriptionPBCC] = useState('');
+   
+
+//Peanut butter m&m
+    const [namePBMM, setNamePBMM] = useState('');
+    const [imagePBMM, setImagePBMM] = useState('');
+    const [descriptionPBMM, setDescriptionPBMM] = useState('');
+  
+
+//m&m
+const [nameMM, setNameMM] = useState('');
+const [imageMM, setImageMM] = useState('');
+const [descriptionMM, setDescriptionMM] = useState('');
+
+//coconut
+const [nameCOCO, setNameCOCO] = useState('');
+const [imageCOCO, setImageCOCO] = useState('');
+const [descriptionCOCO, setDescriptionCOCO] = useState('');
+
+
+//Oatmeal raisin
+const [nameOR, setNameOR] = useState('');
+const [imageOR, setImageOR] = useState('');
+const [descriptionOR, setDescriptionOR] = useState('');
+
+//White chocolate macadamia
+const [nameWCM, setNameWCM] = useState('');
+const [imageWCM, setImageWCM] = useState('');
+const [descriptionWCM, setDescriptionWCM] = useState('');
+
 
   useEffect(() => {
    firebase.database().ref("Chocolate Chip").once("value", snapshot => {
-        setName(snapshot.child("name").val());
-        setImage(snapshot.child("image").val());
-        setDescription(snapshot.child("description").val()); 
+        setNameCC(snapshot.child("name").val());
+        setImageCC(snapshot.child("image").val());
+        setDescriptionCC(snapshot.child("description").val()); 
       });
 
-    console.log("name =>" + name)
+      firebase.database().ref("Peanuts Butter Chocolate Chip").once("value", snapshot => {
+        setNamePBCC(snapshot.child("name").val());
+        setImagePBCC(snapshot.child("image").val());
+        setDescriptionPBCC(snapshot.child("description").val()); 
+      });
+
+
+      firebase.database().ref("Peanut butter m&m").once("value", snapshot => {
+        setNamePBMM(snapshot.child("name").val());
+        setImagePBMM(snapshot.child("image").val());
+        setDescriptionPBMM(snapshot.child("description").val()); 
+      });
+
+
+      firebase.database().ref("Peanut butter m&m").once("value", snapshot => {
+        setNamePBMM(snapshot.child("name").val());
+        setImagePBMM(snapshot.child("image").val());
+        setDescriptionPBMM(snapshot.child("description").val()); 
+      });
+
+
+      firebase.database().ref("Plain m&m").once("value", snapshot => {
+        setNameMM(snapshot.child("name").val());
+        setImageMM(snapshot.child("image").val());
+        setDescriptionMM(snapshot.child("description").val()); 
+      });
+
+      firebase.database().ref("Coconut").once("value", snapshot => {
+        setNameCOCO(snapshot.child("name").val());
+        setImageCOCO(snapshot.child("image").val());
+        setDescriptionCOCO(snapshot.child("description").val()); 
+      });
+       
+      firebase.database().ref("Oatmeal raisin").once("value", snapshot => {
+        setNameOR(snapshot.child("name").val());
+        setImageOR(snapshot.child("image").val());
+        setDescriptionOR(snapshot.child("description").val()); 
+      });
+
+      firebase.database().ref("White chocolate macadamia").once("value", snapshot => {
+        setNameWCM(snapshot.child("name").val());
+        setImageWCM(snapshot.child("image").val());
+        setDescriptionWCM(snapshot.child("description").val()); 
+      });
 
 }, []);
 
@@ -46,28 +124,33 @@ const ProductsPage = () => {
                         <div className="col-md-12 mt-5 ml-5 mb-5">
                            
                            <h1 className="product-title text-center">Cookies</h1>
-                            <div className="row card-center" >
+                            <div className="row card-center mb-5" >
                                {/* place card here */}
                               
-                              <ProductCard name={name} img={image} />
-                            
+                              <ProductCard name={nameCC} img={imageCC} des={descriptionCC}/>
+                              <ProductCard name={namePBCC} img={imagePBCC} des={descriptionPBCC}/>
+                              <ProductCard name={namePBMM} img={imagePBMM} des={descriptionPBMM}/>
+                              <ProductCard name={nameMM} img={imageMM} des={descriptionMM}/>
+                              <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO}/>
+                              <ProductCard name={nameOR} img={imageOR} des={descriptionOR}/>
+                              <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM}/>
                             </div>
 
                             <h1 className="product-title text-center">Cakes</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {/* {productNames.map((object, i) => <ProductCard obj={object} key={i} />)} */}
+                        
                             </div>
 
                             <h1 className="product-title text-center">Pies</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {/* {productNames.map((object, i) => <ProductCard obj={object} key={i} />)} */}
+                           
                             </div>
                             <h1 className="product-title text-center">More</h1>
                             <div className="row card-center" >
                                {/* place card here */}
-                            {/* {productNames.map((object, i) => <ProductCard obj={object} key={i} />)} */}
+                        
                             </div>
                         </div>
                     </div>

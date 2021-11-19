@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from '@mui/material/Card';
-import FlourLogo from '../../Images/joyflo-bites-v3.png';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
@@ -10,7 +9,7 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 export default function MultiActionAreaCard(props) {
 
   return (
-    <Card className="mr-5 ml-4 mt-5">
+    <Card className="mr-5 ml-4 mt-5" sx={{ maxWidth: 200 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -22,23 +21,12 @@ export default function MultiActionAreaCard(props) {
           <Typography gutterBottom variant="h5" component="div">
            {props.name}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-           Description
-          </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="medium" color="primary">
-            <GrShareOption/>
-        </Button>
-        <Button size="small" color="primary">
+      <Button size="large" color="primary">
             <GrFavorite/>
         </Button>
-        <Button size="small" color="primary">
-            <GrShop/>
-        </Button>
-
-      </CardActions>
+       
     </Card>
   );
 }
