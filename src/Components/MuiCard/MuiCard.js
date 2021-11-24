@@ -14,7 +14,7 @@ export default function MultiActionAreaCard(props) {
    let history = useHistory();
  //pass a state to item page
    const onItemClick = () => { 
-    history.push({pathname:"/Item",state: props.name});
+    history.push({pathname:"/Item",state: { name: props.name, img: props.img , ingredients: props.des}});
   }
 
 
@@ -26,7 +26,8 @@ export default function MultiActionAreaCard(props) {
           component="img"
           height="140"
           image={props.img}
-          alt="Product"  
+          alt="Product" 
+          onClick={onItemClick} 
           />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div" onClick={onItemClick}>

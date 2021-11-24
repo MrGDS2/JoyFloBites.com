@@ -6,16 +6,12 @@ $btn-hover-text: black;
     background-color:black;
 }
 
-#item-img{
-    border-radius: 25%;
-}
-
 .item-title{
-color: whitesmoke;
+    color: whitesmoke;
 }
 
 .item-ingredients{
-color: whitesmoke;
+    color: whitesmoke;
 }
 
 .order-btn {
@@ -30,9 +26,7 @@ color: whitesmoke;
     border-radius: 8px;
     background-color: black;
    
-
 }
-
 
 .order-btn:hover {
     background-color: $btn-hover;
