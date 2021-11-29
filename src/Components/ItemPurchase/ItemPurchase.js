@@ -5,6 +5,7 @@ import AutoFitImage from 'react-image-autofit-frame';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaCcPaypal } from 'react-icons/fa';
 import './ItemPurchase.scss';
+import OrderModule from '../OrderModule/OrderModule';
 
 
 const ItemPurchase = () => {
@@ -39,7 +40,8 @@ const ItemPurchase = () => {
                                </div>
                          <div className="row mt-5 ">
                                <div className="col-md-12 mb-5">
-                           <button className="order-btn">Order Today</button>
+                           {/* <button className="order-btn">Order Today</button> */}
+                           <OrderModule/>
                                </div>
                                </div>
                </div>

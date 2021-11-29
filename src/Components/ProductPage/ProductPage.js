@@ -147,7 +147,7 @@ const [descriptionWCM, setDescriptionWCM] = useState('');
                                {/* place card here */}
                            
                             </div>
-                            <h1 className="product-title text-center">More</h1>
+                            <h1 className="product-title text-center">Cultural Treats</h1>
                             <div className="row card-center" >
                                {/* place card here */}
                         
