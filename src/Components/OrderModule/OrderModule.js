@@ -95,6 +95,7 @@ const OrderModule = (props) => {
                     <ModalHeader className="bhm-primary text-white">Order Form: {props.name}</ModalHeader>
                 </div>
                 <ModalBody className="font-weight-bold">
+                    
                     <Form>
                         <FormGroup className="form-group required">
                             <Label for="receipient name" className="d-block text-left control-label">Full Name</Label>
