@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { FaCookieBite } from 'react-icons/fa';
-import { ImCart, ImHeart } from 'react-icons/im';
+import { FaCookieBite,FaInstagram,FaTwitter } from 'react-icons/fa';
+import { ImCart, ImFacebook} from 'react-icons/im';
+import { GiCook, GiTalk} from 'react-icons/gi';
 import { RiAccountCircleLine } from 'react-icons/ri';
 import { TiLocation } from 'react-icons/ti';
 import './HeaderPage.scss';
@@ -14,11 +15,11 @@ const HeaderPage = () => {
             <div className="header-info pt-4 container nav-top">
                 <div className="row" >
 
-                    <div className="col-md-3 header-details">917-574-0612</div>
+                    <div className="col-md-3 header-details"><GiTalk/><GiCook/></div>
                     <div className="col-md-3 header-details"><TiLocation />Location</div>
                     <div className="col-md-2 header-details"><FaCookieBite /></div>
                     <div className="col-md-2 header-details">email</div>
-                    <div className="col-md-1 header-details"><RiAccountCircleLine /> &nbsp;<ImCart /> &nbsp;<ImHeart /></div>
+                    <div className="col-md-1 header-details"><FaTwitter/> &nbsp;<FaInstagram /> <ImFacebook /></div>
                 </div>
 
             </div>
