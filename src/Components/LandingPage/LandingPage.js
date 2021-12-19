@@ -4,6 +4,7 @@ import { FaLongArrowAltRight } from 'react-icons/fa';
 import AboutPage from '../AboutPage/AboutPage';
 import PopularPage from '../PopularPage/PopularPage';
 import './LandingPage.scss';
+import CommunityPage from '../CommunityPage/CommunityPage';
 
 const LandingPage = () => {
 
@@ -33,7 +34,9 @@ const LandingPage = () => {
                     </div>
                 </div>
             </div>
-            <PopularPage />
+           
+            <PopularPage /> 
+            <CommunityPage/>
             <AboutPage />
 
 

@@ -8,6 +8,7 @@ import NavigationBar from '../src/Components/NavigationBar/NavigationBar';
 import './App.scss';
 import HeaderPage from './Components/HeaderPage/HeaderPage';
 import reportWebVitals from './reportWebVitals';
+import CommunityPage from './Components/CommunityPage/CommunityPage';
 
 
 const routing = (
@@ -16,6 +17,7 @@ const routing = (
            <NavigationBar/>
           <Switch>
                   <Route path='/' exact component={LandingPage} />
+                  <Route path='/Community' exact component={CommunityPage} />
                   <Route path='/Products' exact component={ProductsPage} />
                   <Route path='/Item' exact component={ItemPage} />
                   {/* <Route path='/About' exact component={AboutPage} />
