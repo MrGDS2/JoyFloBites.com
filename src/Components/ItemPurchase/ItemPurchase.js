@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import AutoFitImage from 'react-image-autofit-frame';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { FaCcPaypal } from 'react-icons/fa';
+import LikeButton from '../LikeButton/LikeButton';
 import './ItemPurchase.scss';
 import OrderModule from '../OrderModule/OrderModule';
 
@@ -24,24 +25,21 @@ const ItemPurchase = () => {
                    <div className="row mb-5 ">
                        <div className="col-md-12">
                          <h1 className="mt-5 item-title">JOYFLO BITES ™ {history.location.state.name}  </h1>
+                         <LikeButton name={history.location.state.name}/>
                            </div> 
                        </div>
+                       <h3 className="mt-5 mb-3 item-title">Ingredients:</h3>
                        <div className="row mb-5">
+                       
                       <div className="col-md-12 item-ingredients">
-                         {history.location.state.ingredients}
+                         <ol>{history.location.state.ingredients}</ol>
                           </div> 
                       </div>
-                    <div className="row mt-5">
-                               <div className="col-md-12">
-                               <Button variant="outline-light">8 pk</Button>
-                                <Button variant="outline-light">12 pk</Button>
-                                <Button variant="outline-light">32 pk</Button>
-                                   </div>
-                               </div>
+            
                          <div className="row mt-5 ">
                                <div className="col-md-12 mb-5">
                            {/* <button className="order-btn">Order Today</button> */}
-                           <OrderModule/>
+                           <OrderModule price={history.location.state.price}/>
                                </div>
                                </div>
                </div>

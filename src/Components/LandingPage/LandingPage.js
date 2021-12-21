@@ -1,5 +1,6 @@
 import React from 'react';
-import Logo from '../../Images/joyflo-bites-v3.png'
+import Logo from '../../Images/joyflo-bites-v3.png';
+import { useHistory } from 'react-router-dom';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import AboutPage from '../AboutPage/AboutPage';
 import PopularPage from '../PopularPage/PopularPage';
@@ -7,11 +8,11 @@ import './LandingPage.scss';
 
 const LandingPage = () => {
 
-    // let history = useHistory();
+    let history = useHistory();
 
-    // const onBtnClick = () => {
-    //     history.push('/Contact');
-    // }
+    const onBtnClick = () => {
+        history.push('/Products');
+    }
 
     return (
         <React.Fragment>
@@ -28,7 +29,7 @@ const LandingPage = () => {
 
                 <div className="row">
                     <div className="col-md-12 mb-5">
-                        <button className="company-btn ">Order Today <FaLongArrowAltRight /> 
+                        <button className="company-btn " onClick={onBtnClick}>Order Today <FaLongArrowAltRight /> 
                         </button>
                     </div>
                 </div>
