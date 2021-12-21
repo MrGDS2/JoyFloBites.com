@@ -1,18 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { useHistory } from 'react-router-dom';
-import { GrFavorite, GrShareOption, GrShop } from 'react-icons/gr';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+
+import { CardActionArea} from '@mui/material';
+
 
 export default function MultiActionAreaCard(props) {
 
    let history = useHistory();
       //pass a state to item page
    const onItemClick = () => { 
-    history.push({pathname:"/Item",state: { name: props.name, img: props.img , ingredients: props.des}});
+    history.push({pathname:"/Item",state: { name: props.name, img: props.img , ingredients: props.des, price: props.price}});
   }
 
 
@@ -34,9 +35,6 @@ export default function MultiActionAreaCard(props) {
           </Typography>
         </CardContent>
       </CardActionArea>
-      <Button size="large" color="primary" className="like_btn">
-            <GrFavorite/>
-        </Button>
     </Card>
   );
 }

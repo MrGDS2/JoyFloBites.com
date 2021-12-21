@@ -1,95 +1,40 @@
 import React, { useState } from 'react';
-import * as emailjs from 'emailjs-com';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap'
-import { ImPaypal, ImCart } from "react-icons/im";
-import firebase from '../../Firebase';
-import { PayPalButton } from "react-paypal-button-v2";
-import swal from 'sweetalert2';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
+import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import PhoneInput from 'react-phone-number-input';
 import ReCAPTCHA from "react-google-recaptcha";
 import './OrderModule.scss';
 import 'react-phone-number-input/style.css';
 import 'react-calendar/dist/Calendar.css';
+import QuantityButton from '../QuantityButton/QuantityButton';
+import CheckOutButton from '../CheckOutButton/CheckOutButton';
 
 
 const OrderModule = (props) => {
 
-    
+    let history = useHistory();
+
     const [modal, setModal] = useState(false);
     const [isVerified, setVerification] = useState(false);
-    const [checkout, setCheckOut] = useState(false);
     const [date, onDateChange] = useState(new Date());
 
-console.log("date: " + date.getMonth())
+console.log("date: " + props.price)
 
     const [fullName, setFullName] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [eta, setETA] = useState('');
-    const [quantity, setQuantity] = useState('');
-    const [price, setPrice] = useState('');
+    
+   
 
     const toggle = () => setModal(!modal);
 
-    // if (sizeOfPrint !== '') {
-    //     firebase.database().ref('Sizes').child(sizeOfPrint).once("value", snapshot => {
-    //         setPrice(snapshot.val());
-    //         console.log("Size: " + snapshot.val());
-    //     });
-    // }
-
-
-
-    const isEnabled = fullName.length > 0 && isVerified;
-    let emailSent = false;
     const verifyCallback = () => {
         setVerification(true);
     }
-    const handleSubmit = () => {
-        setModal(!modal);
-
-        let templateParams = {
-            name: fullName,
-            // from_name: email,
-            to_name: 'JoyFLoBites',
-            eta: eta,
-            price: price,
-            deliveryAddress: deliveryAddress,
-            phoneNumber: phoneNumber,
-            item: props.name,
-            img: props.image
-        }
-
-        handleVerification(templateParams);
-
-    }
-
-
-    const handleVerification = (templateParams) => {
-
-        if (isVerified) {
-            emailjs.send(
-                process.env.REACT_APP_SERVICE_ID,
-                process.env.REACT_APP_ORDER_TEMPLATE,
-                templateParams,
-                process.env.REACT_APP_USER_ID_EMAILJS
-            ).then(function (response) {
-                console.log("Message sent to Madgiraffe");
-               //alert
-                emailSent = true;
-            }, function (error) {
-                console.log("NO Message sent to Madgiraffe: " + error);
-            });
-            clearForm();
-        }
-    }
-    const clearForm = () => {
-        // setFullName('');
-        // setEmail('');
-    }
-
+  
     return (
         <div>
         <button className="order-btn" onClick={toggle}>Order Today</button>
@@ -119,61 +64,36 @@ console.log("date: " + date.getMonth())
                      <Label for="phone" className="d-block text-left">Phone</Label>
                      <PhoneInput placeholder="Example 914 208 9937" defaultCountry="US" value={phoneNumber} onChange={setPhoneNumber}/>
                  </FormGroup>
-                  <FormGroup>
 
-                  <Calendar
+                 
+
+
+                  <FormGroup>
+     
+                  {/* <Calendar
                     onChange={onDateChange}
                     value={date}
                     tileDisabled={({activeStartDate, date, view }) => date.getMonth()===11
                      &&
                     date.getDate() <= 5}
                     className="calendar"
-                    />
+                    /> */}
                     </FormGroup>
                         {/* <ReCAPTCHA className="mb-4 d-flex justify-content-center"
                             sitekey={process.env.REACT_APP_SITE_KEY}
                             onChange={verifyCallback}
                         /> */}
-                        <p className="checkout-txt">Checkout Total: ${price} </p>
-                        <div className="paypal-btn">
-                            {checkout ? (
-                                <PayPalButton
-                                    amount={price}
-                                
-                                    // shippingPreference="NO_SHIPPING" // default is "GET_FROM_FILE"
-                                    onSuccess={(details, data) => {
-                                        //send email to user and business
-                                        handleSubmit();
-                                        if(!emailSent) {
-                                           //swal alert
-                                            console.log("NO Email sent!");
-                                         }else console.log("Email sent!");
-                                        // OPTIONAL: Call your server to save the transaction
-                                        return fetch("/paypal-transaction-complete", {
-                                            method: "post",
-                                            body: JSON.stringify({
-                                                orderID: data.orderID
-                                            })
-                                        });
 
-                                    }}
-                                    catchError={(err) => {
-                                        console.log("FAILED: " + err);
-                                   //swal alert
-                                    }}
-                                />
-                            ) : (
+                     {/* PayPalButton */}
+                     
+                     <CheckOutButton 
+                     name={fullName} address={deliveryAddress}
+                     toggle={toggle} phone={phoneNumber}
+                     isVerified={isVerified} eta={eta}
+                     modal={modal}
+                     price={props.price}
+                     />
 
-                                    <div className="container " id="checkout-btn">
-                                        <Button onClick={() => {
-                                            //setCheckOut(true);
-                                        }} size="lg" className="mb-5" disabled={!isEnabled} >
-                                            Checkout <ImCart /></Button>
-                                    </div>
-
-                                )}
-
-                        </div>
                     </Form>
                 </ModalBody>
                 <ModalFooter>
