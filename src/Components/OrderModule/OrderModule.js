@@ -14,8 +14,6 @@ import CheckOutButton from '../CheckOutButton/CheckOutButton';
 
 const OrderModule = (props) => {
 
-    let history = useHistory();
-
     const [modal, setModal] = useState(false);
     const [isVerified, setVerification] = useState(false);
     const [date, onDateChange] = useState(new Date());
@@ -24,6 +22,7 @@ console.log("date: " + props.price)
 
     const [fullName, setFullName] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
+    const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [eta, setETA] = useState('');
     
@@ -60,29 +59,37 @@ console.log("date: " + props.price)
                             
                         </FormGroup>
 
+                        <FormGroup className="form-group required">
+                            <Label for="receipient name" className="d-block text-left control-label">Email</Label>
+                            <Input type="text" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your E-mail" title="Please put your name for us" required />
+                            
+                        </FormGroup>
+
                         <FormGroup >
                      <Label for="phone" className="d-block text-left">Phone</Label>
                      <PhoneInput placeholder="Example 914 208 9937" defaultCountry="US" value={phoneNumber} onChange={setPhoneNumber}/>
                  </FormGroup>
+
+
 
                  
 
 
                   <FormGroup>
      
-                  {/* <Calendar
+                  <Calendar
                     onChange={onDateChange}
                     value={date}
                     tileDisabled={({activeStartDate, date, view }) => date.getMonth()===11
                      &&
                     date.getDate() <= 5}
                     className="calendar"
-                    /> */}
+                    required/>
                     </FormGroup>
-                        {/* <ReCAPTCHA className="mb-4 d-flex justify-content-center"
-                            sitekey={process.env.REACT_APP_SITE_KEY}
+                        <ReCAPTCHA className="mb-4 d-flex justify-content-center"
+                            sitekey={`6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI`}
                             onChange={verifyCallback}
-                        /> */}
+                        />
 
                      {/* PayPalButton */}
                      

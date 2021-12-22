@@ -11,7 +11,7 @@ const CheckOutButton = (props) => {
     
     const [modal, setModal] = useState(false);
     
-    const isEnabled = props.name.length > 0 ;
+    const isEnabled = props.name.length > 0 && props.isVerified==true;
     var emailSent = false;
 
  
@@ -63,9 +63,6 @@ const CheckOutButton = (props) => {
     
     <Label for="email" className="d-block text-left control-label">How many would you like?</Label>
         <QuantityButton price={props.price} handleSubmit={handleSubmit} emailSent={emailSent} isEnabled={isEnabled}/>
-
-                        
-
 
         </React.Fragment>
     )

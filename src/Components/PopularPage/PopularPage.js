@@ -21,15 +21,15 @@ const PopularPage = () => {
                 <div className="row text-center">
                     <div className="container">
                         <div className="col-md-12 about-text mt-5">
-                            <h1 className="pop-title">Consumers Choice</h1>
+                            <h1 className="pop-title">Flo's Favs</h1>
                         </div>
                         <div className="col-md-12 mt-5 mb-5">
                              <div className="row ml-4" >
                                  <div className="col-lg-4 card-col">
                                  <Card className="pop-card" >
-                                <Card.Img variant="top" src={FlourLogo} />
+                                <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/joyflobites.appspot.com/o/Cookies%2Ffav1.jpg?alt=media&token=8455b77d-38f0-43fb-9400-6dc6fd54321e" />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>Chocolate Chip Cookies</Card.Title>
                                     <Card.Text>
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
@@ -47,9 +47,9 @@ const PopularPage = () => {
 
                                  <div className="col-lg-4 card-col">
                                  <Card className="pop-card" >
-                                <Card.Img variant="top" src={FlourLogo} />
+                                <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/joyflobites.appspot.com/o/Cultural%2Fmeatpies1.jpg?alt=media&token=9052fe19-b18b-4c02-8764-418bcb7eb79c" />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>Nigerian Meat pies</Card.Title>
                                     <Card.Text>
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.
@@ -68,9 +68,9 @@ const PopularPage = () => {
 
                                  <div className="col-lg-4 card-col">
                                  <Card className="pop-card">
-                                <Card.Img variant="top" src={FlourLogo} />
+                                <Card.Img variant="top" src="https://firebasestorage.googleapis.com/v0/b/joyflobites.appspot.com/o/Cakes%2Ffav2.jpg?alt=media&token=378855e7-b711-40e7-b7f8-728c7dc991a9" />
                                 <Card.Body>
-                                    <Card.Title>Card Title</Card.Title>
+                                    <Card.Title>Carrot Cake</Card.Title>
                                     <Card.Text>
                                         Some quick example text to build on the card title and make up the bulk of
                                         the card's content.

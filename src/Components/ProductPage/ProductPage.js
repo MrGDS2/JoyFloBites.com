@@ -8,12 +8,14 @@ import ItemPurchase from '../ItemPurchase/ItemPurchase';
 
 const ProductsPage = () => {
 
+
   /**Cookies**/
   //Chocolatechip
   const [nameCC, setNameCC] = useState('');
   const [imageCC, setImageCC] = useState('');
   const [descriptionCC, setDescriptionCC] = useState('');
   const [priceCC, setPriceCC] = useState('');
+  
 
   //Peanut butter chocolate chip
   const [namePBCC, setNamePBCC] = useState('');
@@ -113,7 +115,7 @@ const ProductsPage = () => {
       setPriceCC(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Peanuts Butter Chocolate Chip").once("value", snapshot => {
+    firebase.database().ref("Peanut Butter Chocolate Chip").once("value", snapshot => {
       setNamePBCC(snapshot.child("name").val());
       setImagePBCC(snapshot.child("image").val());
       setDescriptionPBCC(snapshot.child("description").val());
@@ -121,35 +123,35 @@ const ProductsPage = () => {
     });
 
 
-    firebase.database().ref("Peanut butter m&m").once("value", snapshot => {
+    firebase.database().ref("Peanut Butter M&M").once("value", snapshot => {
       setNamePBMM(snapshot.child("name").val());
       setImagePBMM(snapshot.child("image").val());
       setDescriptionPBMM(snapshot.child("description").val());
       setPricePBMM(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Plain m&m").once("value", snapshot => {
+    firebase.database().ref("Plain M&M").once("value", snapshot => {
       setNameMM(snapshot.child("name").val());
       setImageMM(snapshot.child("image").val());
       setDescriptionMM(snapshot.child("description").val());
       setPriceMM(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Oatmeal raisin").once("value", snapshot => {
+    firebase.database().ref("Oatmeal Raisin").once("value", snapshot => {
       setNameOR(snapshot.child("name").val());
       setImageOR(snapshot.child("image").val());
       setDescriptionOR(snapshot.child("description").val());
       setPriceOR(snapshot.child("price").val());
     });
 
-    firebase.database().ref("White chocolate macadamia").once("value", snapshot => {
+    firebase.database().ref("White Chocolate Macadamia").once("value", snapshot => {
       setNameWCM(snapshot.child("name").val());
       setImageWCM(snapshot.child("image").val());
       setDescriptionWCM(snapshot.child("description").val());
       setPriceWCM(snapshot.child("price").val());
 
     });
-    firebase.database().ref("Coconut").once("value", snapshot => {
+    firebase.database().ref("Toasted Coconut").once("value", snapshot => {
       setNameCOCO(snapshot.child("name").val());
       setImageCOCO(snapshot.child("image").val());
       setDescriptionCOCO(snapshot.child("description").val());
@@ -159,7 +161,7 @@ const ProductsPage = () => {
 
     //cakes 
 
-    firebase.database().ref("Louisiana crunch cake").once("value", snapshot => {
+    firebase.database().ref("Louisiana Crunch Cake").once("value", snapshot => {
       setNameLC(snapshot.child("name").val());
       setImageLC(snapshot.child("image").val());
       setDescriptionLC(snapshot.child("description").val());
@@ -167,7 +169,7 @@ const ProductsPage = () => {
     });
 
 
-    firebase.database().ref("Red velvet with cream cheese glaze").once("value", snapshot => {
+    firebase.database().ref("Red Velvet With Cream Cheese Glaze").once("value", snapshot => {
       setNameRV(snapshot.child("name").val());
       setImageRV(snapshot.child("image").val());
       setDescriptionRV(snapshot.child("description").val());
@@ -193,7 +195,7 @@ const ProductsPage = () => {
     //cultural treats
 
 
-    firebase.database().ref("Banana bread").once("value", snapshot => {
+    firebase.database().ref("Banana Bread").once("value", snapshot => {
       setNameBB(snapshot.child("name").val());
       setImageBB(snapshot.child("image").val());
       setDescriptionBB(snapshot.child("description").val());
@@ -201,7 +203,7 @@ const ProductsPage = () => {
     });
 
 
-    firebase.database().ref("Meat pies").once("value", snapshot => {
+    firebase.database().ref("Nigerian Meat pies").once("value", snapshot => {
       setNameMP(snapshot.child("name").val());
       setImageMP(snapshot.child("image").val());
       setDescriptionMP(snapshot.child("description").val());
