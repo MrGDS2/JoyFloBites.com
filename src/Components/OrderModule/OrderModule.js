@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import PhoneInput from 'react-phone-number-input';
-import ReCAPTCHA from "react-google-recaptcha";
+import Recaptcha from 'react-google-invisible-recaptcha';
+import firebase from '../../Firebase';
+import CheckOutButton from '../CheckOutButton/CheckOutButton';
 import 'react-phone-number-input/style.css';
 import 'react-calendar/dist/Calendar.css';
-import CheckOutButton from '../CheckOutButton/CheckOutButton';
 import './OrderModule.scss';
 
 const OrderModule = (props) => {
@@ -21,12 +22,27 @@ const OrderModule = (props) => {
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [cookieSize, setCookieSize] = useState('');
+    const [cookiePrice, setCookiePrice] = useState('');
 
     let history = useHistory();
     let itemName = history.location.state.name;
-   
+    let isCookie = history.location.state.isCookie;
+    
     const toggle = () => setModal(!modal);
+   
+    useEffect(() => {
+                 firebase.database().ref('Cookie Amount').child(cookieSize!==''?cookieSize:12)
+                 .once("value", snapshot  => {
+                 setCookiePrice(snapshot.val());
+                 
+              })
+    
+           console.log("order module: " + cookiePrice)
 
+            },[]);
+      
+    
+  
     const verifyCallback = () => {
         setVerification(true);
     }
@@ -82,12 +98,12 @@ const OrderModule = (props) => {
 
                  <FormGroup className="form-group required">
 
-                 <Label for="phone" className="d-block text-left" >Cookie Amount</Label>
-                            <Input type="select" name="size" value={cookieSize} onChange={e => setCookieSize(e.target.value)} 
-                            title="Set cookie amount" disabled={true}>
+                 <Label for="phone" className="d-block text-left">Cookie Amount</Label>
+                            <Input type="select" name="amount" value={cookieSize} onChange={e => setCookieSize(e.target.value)} 
+                             title="Set cookie amount" disabled={!isCookie}>
                                 <option disabled > -- Select Cookie Amount -- </option>
-                                <option>3</option>
-                                <option>6</option>
+                                <option disabled>3</option>
+                                <option disabled>6</option>
                                 <option>12</option>
                             </Input>
                     </FormGroup>
@@ -114,11 +130,15 @@ const OrderModule = (props) => {
                     </FormGroup>     
                     
                     
+                    
 
-                        <ReCAPTCHA className="mb-4 d-flex justify-content-center"
+                        {/* <ReCAPTCHA className="mb-4 d-flex justify-content-center"
                             sitekey={`6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI`}
                             onChange={verifyCallback}
-                        />
+                        /> */}
+                        <Recaptcha
+                         sitekey={ `6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI` }
+                         onResolved={ () => console.log( 'Human detected.' ),verifyCallback } />
 
                      {/* PayPalButton */}
                      
@@ -129,7 +149,9 @@ const OrderModule = (props) => {
                      isVerified={isVerified} eta={date}
                      item={itemName}
                      modal={modal}
-                     price={props.price}
+                     price={isCookie?cookiePrice:props.price}
+
+
                      />
 
                     </Form>

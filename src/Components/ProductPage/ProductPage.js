@@ -239,22 +239,22 @@ const ProductsPage = () => {
               <div className="row card-center mb-5" >
                 {/* place card here */}
 
-                <ProductCard name={nameCC} img={imageCC} des={descriptionCC} price={priceCC}/>
-                <ProductCard name={namePBCC} img={imagePBCC} des={descriptionPBCC} price={pricePBCC} />
-                <ProductCard name={namePBMM} img={imagePBMM} des={descriptionPBMM} price={pricePBMM} />
-                <ProductCard name={nameMM} img={imageMM} des={descriptionMM} price={priceMM}/>
-                <ProductCard name={nameOR} img={imageOR} des={descriptionOR} price={priceOR}/>
-                <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM}/>
-                <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO}/>
+                <ProductCard name={nameCC} img={imageCC} des={descriptionCC} price={priceCC} isCookie={true}/>
+                <ProductCard name={namePBCC} img={imagePBCC} des={descriptionPBCC} price={pricePBCC} isCookie={true}/>
+                <ProductCard name={namePBMM} img={imagePBMM} des={descriptionPBMM} price={pricePBMM} isCookie={true}/>
+                <ProductCard name={nameMM} img={imageMM} des={descriptionMM} price={priceMM} isCookie={true}/>
+                <ProductCard name={nameOR} img={imageOR} des={descriptionOR} price={priceOR} isCookie={true}/>
+                <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM} isCookie={true}/>
+                <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO} isCookie={true}/>
               </div>
 
               <h1 className="product-title text-center mb-5">Cakes</h1>
               <div className="row card-center" >
                 {/* place card here */}
-                <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC}/>
-                <ProductCard name={nameRV} img={imageRV} des={descriptionRV} price={priceRV}/>
-                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD}/>
-                <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD}/>
+                <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC} isCookie={false}/>
+                <ProductCard name={nameRV} img={imageRV} des={descriptionRV} price={priceRV} isCookie={false}/>
+                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD} isCookie={false}/>
+                <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false}/>
                 {/* <ProductCard name="CHEESE CAKE" img={imageBPD} des={descriptionBPD}/> */}
               </div>
 
@@ -262,8 +262,8 @@ const ProductsPage = () => {
               <h1 className="product-title text-center mt-5">Cultural Treats</h1>
               <div className="row card-center" >
                 {/* place card here */}
-                <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB}/>
-                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP}/>
+                <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB} isCookie={false}/>
+                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false}/>
               </div>
             </div>
           </div>

@@ -13,7 +13,7 @@ const ItemPurchase = () => {
 
   let history = useHistory();
    
-  // console.log("name: " + history.location.state.name);
+// console.log("isCookie: " + history.location.state.isCookie);
 
 
     return (
@@ -42,7 +42,7 @@ const ItemPurchase = () => {
                          <div className="row mt-5 ">
                                <div className="col-md-12 mb-5">
                            {/* <button className="order-btn">Order Today</button> */}
-                           <OrderModule price={history.location.state.price}/>
+                           <OrderModule price={history.location.state.price} isCookie={history.location.state.isCookie}/>
                                </div>
                                </div>
                </div>

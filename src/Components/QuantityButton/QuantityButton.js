@@ -84,7 +84,7 @@ class QuantityButton extends Component {
 
 
   PriceChangeUP = () => {
-    this.setState({ total: this.state.total * this.state.clicks });
+    this.setState({ total: this.props.price * this.state.clicks });
   }
 
   PriceChangeDown = () => {
