@@ -5,12 +5,10 @@ import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import PhoneInput from 'react-phone-number-input';
 import ReCAPTCHA from "react-google-recaptcha";
-import './OrderModule.scss';
 import 'react-phone-number-input/style.css';
 import 'react-calendar/dist/Calendar.css';
-import QuantityButton from '../QuantityButton/QuantityButton';
 import CheckOutButton from '../CheckOutButton/CheckOutButton';
-
+import './OrderModule.scss';
 
 const OrderModule = (props) => {
 
@@ -18,31 +16,43 @@ const OrderModule = (props) => {
     const [isVerified, setVerification] = useState(false);
     const [date, onDateChange] = useState(new Date());
 
-console.log("date: " + props.price)
-
     const [fullName, setFullName] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [eta, setETA] = useState('');
-    
-   
+    const [cookieSize, setCookieSize] = useState('');
 
+    let history = useHistory();
+    let itemName = history.location.state.name;
+   
     const toggle = () => setModal(!modal);
 
     const verifyCallback = () => {
         setVerification(true);
     }
-  
+
+
+    const setModalRefresh = () => {
+        setModal(!modal);
+        clearForm();
+    }
+
+    const clearForm = () => {  
+      setFullName('');
+      setEmail('');
+      setPhoneNumber('');
+      setDeliveryAddress('');
+  }
+
     return (
         <div>
         <button className="order-btn" onClick={toggle}>Order Today</button>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className="modal-head-order">
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" onClick={() => setModal(!modal)} className="x-btn">&times;</span>
+                        <span aria-hidden="true" onClick={() => setModalRefresh()} className="x-btn">&times;</span>
                     </button>
-                    <ModalHeader className="bhm-primary text-white">Order Form</ModalHeader>
+                    <ModalHeader className="bhm-primary text-white">Please Fill out Order for:  {itemName}</ModalHeader>
                 </div>
                 <ModalBody className="font-weight-bold">
                     
@@ -70,6 +80,18 @@ console.log("date: " + props.price)
                      <PhoneInput placeholder="Example 914 208 9937" defaultCountry="US" value={phoneNumber} onChange={setPhoneNumber}/>
                  </FormGroup>
 
+                 <FormGroup className="form-group required">
+
+                 <Label for="phone" className="d-block text-left" >Cookie Amount</Label>
+                            <Input type="select" name="size" value={cookieSize} onChange={e => setCookieSize(e.target.value)} 
+                            title="Set cookie amount" disabled={true}>
+                                <option disabled > -- Select Cookie Amount -- </option>
+                                <option>3</option>
+                                <option>6</option>
+                                <option>12</option>
+                            </Input>
+                    </FormGroup>
+
 
 
                  
@@ -85,7 +107,14 @@ console.log("date: " + props.price)
                     date.getDate() <= 5}
                     className="calendar"
                     required/>
-                    </FormGroup>
+
+
+                   
+                    
+                    </FormGroup>     
+                    
+                    
+
                         <ReCAPTCHA className="mb-4 d-flex justify-content-center"
                             sitekey={`6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI`}
                             onChange={verifyCallback}
@@ -96,7 +125,9 @@ console.log("date: " + props.price)
                      <CheckOutButton 
                      name={fullName} address={deliveryAddress}
                      toggle={toggle} phone={phoneNumber}
-                     isVerified={isVerified} eta={eta}
+                     email={email}
+                     isVerified={isVerified} eta={date}
+                     item={itemName}
                      modal={modal}
                      price={props.price}
                      />

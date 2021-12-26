@@ -13,7 +13,9 @@ const ItemPurchase = () => {
 
   let history = useHistory();
    
-  console.log("name: " + history.location.state.name)
+  // console.log("name: " + history.location.state.name);
+
+
     return (
         <React.Fragment>
  <div className="container">
