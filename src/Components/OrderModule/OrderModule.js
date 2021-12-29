@@ -4,7 +4,7 @@ import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import PhoneInput from 'react-phone-number-input';
-import Recaptcha from 'react-google-invisible-recaptcha';
+import Recaptcha from 'react-google-recaptcha';
 import firebase from '../../Firebase';
 import CheckOutButton from '../CheckOutButton/CheckOutButton';
 import 'react-phone-number-input/style.css';
