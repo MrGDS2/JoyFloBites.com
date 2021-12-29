@@ -6,6 +6,7 @@ import AboutPage from '../AboutPage/AboutPage';
 import PopularPage from '../PopularPage/PopularPage';
 import './LandingPage.scss';
 import CommunityPage from '../CommunityPage/CommunityPage';
+import Footer from '../Footer/Footer';
 
 const LandingPage = () => {
 
@@ -39,6 +40,7 @@ const LandingPage = () => {
             <PopularPage /> 
             <CommunityPage/>
             <AboutPage />
+            <Footer/>
 
 
 
