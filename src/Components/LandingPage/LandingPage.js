@@ -6,7 +6,6 @@ import AboutPage from '../AboutPage/AboutPage';
 import PopularPage from '../PopularPage/PopularPage';
 import './LandingPage.scss';
 import CommunityPage from '../CommunityPage/CommunityPage';
-import Footer from '../Footer/Footer';
 
 const LandingPage = () => {
 
@@ -31,18 +30,15 @@ const LandingPage = () => {
 
                 <div className="row">
                     <div className="col-md-12 mb-5">
-                        <button className="company-btn " onClick={onBtnClick}>Order Today <FaLongArrowAltRight /> 
+                        <button className="company-btn " onClick={onBtnClick}>Order Today <FaLongArrowAltRight />
                         </button>
                     </div>
                 </div>
             </div>
-           
-            <PopularPage /> 
-            <CommunityPage/>
+
+            <PopularPage />
+            <CommunityPage />
             <AboutPage />
-            <Footer/>
-
-
 
         </React.Fragment>
     );
