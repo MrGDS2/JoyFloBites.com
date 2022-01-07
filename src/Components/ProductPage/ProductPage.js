@@ -240,7 +240,7 @@ const ProductsPage = () => {
 
             <div className="col-md-12 mt-5 ml-5 mb-5">
 
-              <h1 className="product-title text-center">Cookies</h1>
+              <h1 className="product-title text-center" id="Cookies">Cookies</h1>
               <div className="row card-center mb-5" >
 
                 <ProductCard name={nameCC} img={imageCC} des={descriptionCC} price={priceCC} isCookie={true} />
@@ -252,7 +252,7 @@ const ProductsPage = () => {
                 <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO} isCookie={true} />
               </div>
 
-              <h1 className="product-title text-center mb-5">Cakes</h1>
+              <h1 className="product-title text-center mb-5" id="Cakes">Cakes</h1>
               <div className="row card-center" >
 
                 <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC} isCookie={false} />
@@ -265,10 +265,11 @@ const ProductsPage = () => {
 
 
               <h1 className="product-title text-center mt-5">Cultural Treats</h1>
-              <div className="row card-center" >
+              <div className="row card-center" id="treats" >
 
                 <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB} isCookie={false} />
-                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false} />
+                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false}/>
+              
               </div>
             </div>
           </div>

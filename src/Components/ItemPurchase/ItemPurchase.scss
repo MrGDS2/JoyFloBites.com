@@ -3,7 +3,8 @@ $btn-hover: white;
 $btn-hover-text: black;
 
 .item-info{
-    background-color:black;
+    background-image: url('../../Images/flour_spoon_flo_table.jpg');
+    background-size: cover;
 }
 
 .item-title{
@@ -24,7 +25,7 @@ $btn-hover-text: black;
     font-size: 31px;
     width: 360px;
     border-radius: 8px;
-    background-color: black;
+    background-color: rgb(10, 7, 7);
    
 }
 
