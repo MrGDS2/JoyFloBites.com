@@ -13,12 +13,12 @@ import './SlackCommunityPage.scss';
 
 
 const SlackCommunityPage = () => {
-    
-    const webHookURL="https://hooks.slack.com/services/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";
+
+    const webHookURL = "https://hooks.slack.com/services/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";
     const [isVerified, setVerification] = useState(false);
     const [message, setMessage] = useState('');
 
-  
+
     // let res =  axios.post(webHookURL, JSON.stringify(data), {
     //     withCredentials: false,
     //     transformRequest: [(data, headers) => {
@@ -29,36 +29,12 @@ const SlackCommunityPage = () => {
 
     // })
 
-    const data ={
+    const data = {
         "text": `${message}`
     }
 
-    
-    axios.post(webHookURL,JSON.stringify(data))
-    .then(res => {
-      console.log(res);
-      console.log(res.data);
-    })
 
 
-    // if (res === 200) {
-    //     swal.fire("SENT!");
-    //     setMessage("");
-    // } else {
-    //     swal.fire("Message Failed!");
-
-    // }
-
-    if(res===200){
-        swal.fire("SENT!");
-        setMessage("");
-    }
-    else{
-        swal.fire("Message Failed!");
-
-    }
-
-  
 
     const verifyCallback = () => {
         setVerification(true);
@@ -67,12 +43,35 @@ const SlackCommunityPage = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        swal.fire("SENT!");
+        axios.post(webHookURL, JSON.stringify(data))
+            .then(res => {
+                console.log(res);
+                console.log("data" + res.data);
+                if (res.status === 200) {
+                    swal.fire({
+                        title: `Thank You!`,
+                        text: `We've received your feedback!`,
+                        icon: "success",
+                        timer: 5000,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    });
 
+                    setMessage("");
+                }
+                else {
+                    swal.fire({
+                        title: `Message Failure`,
+                        text: `An error has occurred please contact JoyFloBites@gmail.com`,
+                        icon: "error",
+                        timer: 5000,
+                        showCancelButton: false,
+                        showConfirmButton: false
+                    });
+                }
+            })
 
     }
-
-   // console.log("feedback " + message);
 
     return (
 
@@ -80,14 +79,14 @@ const SlackCommunityPage = () => {
 
             <FadeIn transitionDuration="1000">
                 <div className="container">
-                    
+
                     <div className="row row-centered">
                         <div className="col-md-12">
-                            <img src={flour_logo} width="600" height="500" alt="logo" />
+                            <img src={flour_logo} width="700" height="500" alt="logo" />
                             <h1 className="feed-text mt-5">Your FeedBack Is Important!</h1>
                         </div>
 
-                    
+
                     </div>
 
                     <div className="row row-centered">
@@ -109,12 +108,12 @@ const SlackCommunityPage = () => {
                                     placeholder="Enter Text Here"
                                     variant="filled"
                                     value={message}
-                                    onChange={(e)=> setMessage(e.target.value)}
+                                    onChange={(e) => setMessage(e.target.value)}
 
                                 />
                             </Box>
                             <Button variant="dark"
-                             onClick={(e)=>handleSubmit(e)}
+                                onClick={(e) => handleSubmit(e)}
                             >Submit</Button>
                         </div>
                     </div>
