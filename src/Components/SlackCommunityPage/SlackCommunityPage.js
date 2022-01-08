@@ -14,27 +14,13 @@ import './SlackCommunityPage.scss';
 
 const SlackCommunityPage = () => {
 
-    const webHookURL = "https://hooks.slack.com/services/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";
+    const webHookURL = "https://hooks.slack.com/services/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";
     const [isVerified, setVerification] = useState(false);
     const [message, setMessage] = useState('');
-
-
-    // let res =  axios.post(webHookURL, JSON.stringify(data), {
-    //     withCredentials: false,
-    //     transformRequest: [(data, headers) => {
-    //         delete headers.post["Content Type"]
-
-    //         return data;
-    //     }]
-
-    // })
 
     const data = {
         "text": `${message}`
     }
-
-
-
 
     const verifyCallback = () => {
         setVerification(true);
