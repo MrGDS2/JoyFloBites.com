@@ -1,58 +1,54 @@
 .pop-card {
-    background-color: whitesmoke;
-    opacity: 90%;
-    width: 18rem;
+  background-color: whitesmoke;
+  opacity: 90%;
+  width: 18rem;
+}
+
+.fav-link {
+  color: rgb(0, 0, 0) !important;
+  text-decoration: none;
 }
 
 .pop-title {
-    color: #000021;
+  color: white;
 }
 
 .react-stars {
-    margin-left: 1vw;
+  margin-left: 1vw;
 }
 
 .popular-products {
-    background-color: white;
-    margin-top: 6vw;
+  background-image: url("../../Images/flour_spoon_flo_table.jpg");
+  margin-top: 6vw;
 }
 
-@media only screen and (max-width:991px) {
+@media only screen and (max-width: 991px) {
+  .pop-card {
+    width: 57vw;
+  }
 
-    .pop-card{
-        width: 57vw;
-    }
+  .popular-products {
+    margin-top: 70vw;
+  }
 
-    .popular-products {
-        margin-top: 70vw;
-    }
-
-    .react-stars {
-
-        margin-left: 14vw;
-    }
-
-
+  .react-stars {
+    margin-left: 14vw;
+  }
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
+  .pop-card {
+    width: 57vw;
+  }
 
-    .pop-card{
-        width: 57vw;
-    }
+  .card-col {
+    margin: 8vw;
+  }
+  .popular-products {
+    margin-top: 70vw;
+  }
 
-
-    .card-col{
-        margin: 8vw;
-    }
-    .popular-products {
-        margin-top: 70vw;
-    }
-
-    .react-stars {
-
-        margin-left: 13vw;
-    }
-
-
+  .react-stars {
+    margin-left: 13vw;
+  }
 }

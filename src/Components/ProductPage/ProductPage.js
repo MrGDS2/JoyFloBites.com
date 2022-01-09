@@ -8,12 +8,14 @@ import ItemPurchase from '../ItemPurchase/ItemPurchase';
 
 const ProductsPage = () => {
 
+
   /**Cookies**/
   //Chocolatechip
   const [nameCC, setNameCC] = useState('');
   const [imageCC, setImageCC] = useState('');
   const [descriptionCC, setDescriptionCC] = useState('');
   const [priceCC, setPriceCC] = useState('');
+
 
   //Peanut butter chocolate chip
   const [namePBCC, setNamePBCC] = useState('');
@@ -78,13 +80,19 @@ const ProductsPage = () => {
   const [imageLC, setImageLC] = useState('');
   const [descriptionLC, setDescriptionLC] = useState('');
   const [priceLC, setPriceLC] = useState('');
-  
+
 
   //butter pound
   const [nameBPD, setNameBPD] = useState('');
   const [imageBPD, setImageBPD] = useState('');
   const [descriptionBPD, setDescriptionBPD] = useState('');
   const [priceBPD, setPriceBPD] = useState('');
+
+  //carrot cake
+  const [nameCarr, setNameCarr] = useState('');
+  const [imageCarr, setImageCarr] = useState('');
+  const [descriptionCarr, setDescriptionCarr] = useState('');
+  const [priceCarr, setPriceCarr] = useState('');
 
 
 
@@ -113,7 +121,7 @@ const ProductsPage = () => {
       setPriceCC(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Peanuts Butter Chocolate Chip").once("value", snapshot => {
+    firebase.database().ref("Peanut Butter Chocolate Chip").once("value", snapshot => {
       setNamePBCC(snapshot.child("name").val());
       setImagePBCC(snapshot.child("image").val());
       setDescriptionPBCC(snapshot.child("description").val());
@@ -121,35 +129,35 @@ const ProductsPage = () => {
     });
 
 
-    firebase.database().ref("Peanut butter m&m").once("value", snapshot => {
+    firebase.database().ref("Peanut Butter M&M").once("value", snapshot => {
       setNamePBMM(snapshot.child("name").val());
       setImagePBMM(snapshot.child("image").val());
       setDescriptionPBMM(snapshot.child("description").val());
       setPricePBMM(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Plain m&m").once("value", snapshot => {
+    firebase.database().ref("Plain M&M").once("value", snapshot => {
       setNameMM(snapshot.child("name").val());
       setImageMM(snapshot.child("image").val());
       setDescriptionMM(snapshot.child("description").val());
       setPriceMM(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Oatmeal raisin").once("value", snapshot => {
+    firebase.database().ref("Oatmeal Raisin").once("value", snapshot => {
       setNameOR(snapshot.child("name").val());
       setImageOR(snapshot.child("image").val());
       setDescriptionOR(snapshot.child("description").val());
       setPriceOR(snapshot.child("price").val());
     });
 
-    firebase.database().ref("White chocolate macadamia").once("value", snapshot => {
+    firebase.database().ref("White Chocolate Macadamia").once("value", snapshot => {
       setNameWCM(snapshot.child("name").val());
       setImageWCM(snapshot.child("image").val());
       setDescriptionWCM(snapshot.child("description").val());
       setPriceWCM(snapshot.child("price").val());
 
     });
-    firebase.database().ref("Coconut").once("value", snapshot => {
+    firebase.database().ref("Toasted Coconut").once("value", snapshot => {
       setNameCOCO(snapshot.child("name").val());
       setImageCOCO(snapshot.child("image").val());
       setDescriptionCOCO(snapshot.child("description").val());
@@ -159,7 +167,7 @@ const ProductsPage = () => {
 
     //cakes 
 
-    firebase.database().ref("Louisiana crunch cake").once("value", snapshot => {
+    firebase.database().ref("Louisiana Crunch Cake").once("value", snapshot => {
       setNameLC(snapshot.child("name").val());
       setImageLC(snapshot.child("image").val());
       setDescriptionLC(snapshot.child("description").val());
@@ -167,7 +175,7 @@ const ProductsPage = () => {
     });
 
 
-    firebase.database().ref("Red velvet with cream cheese glaze").once("value", snapshot => {
+    firebase.database().ref("Red Velvet With Cream Cheese Glaze").once("value", snapshot => {
       setNameRV(snapshot.child("name").val());
       setImageRV(snapshot.child("image").val());
       setDescriptionRV(snapshot.child("description").val());
@@ -188,12 +196,18 @@ const ProductsPage = () => {
       setPricePD(snapshot.child("price").val());
     });
 
+    firebase.database().ref("Carrot Cake").once("value", snapshot => {
+      setNameCarr(snapshot.child("name").val());
+      setImageCarr(snapshot.child("image").val());
+      setDescriptionCarr(snapshot.child("description").val());
+      setPriceCarr(snapshot.child("price").val());
+    });
 
 
     //cultural treats
 
 
-    firebase.database().ref("Banana bread").once("value", snapshot => {
+    firebase.database().ref("Banana Bread").once("value", snapshot => {
       setNameBB(snapshot.child("name").val());
       setImageBB(snapshot.child("image").val());
       setDescriptionBB(snapshot.child("description").val());
@@ -201,7 +215,7 @@ const ProductsPage = () => {
     });
 
 
-    firebase.database().ref("Meat pies").once("value", snapshot => {
+    firebase.database().ref("Nigerian Meat pies").once("value", snapshot => {
       setNameMP(snapshot.child("name").val());
       setImageMP(snapshot.child("image").val());
       setDescriptionMP(snapshot.child("description").val());
@@ -214,54 +228,48 @@ const ProductsPage = () => {
 
   return (
     <React.Fragment>
-      <div className="popular-products" id="about">
+      <div className="popular-products product-body" id="about">
         <div className="row text-center ">
-          <div className="col-lg-6">
-            <h6 className="link-tree mt-5">Home <RiArrowDropRightLine /> Products</h6>
+          <div className="col-lg-6 product-body product-title">
+            <h6 className="link-tree mt-5 ">Home <RiArrowDropRightLine /> Products</h6>
           </div>
         </div>
 
-
-        <div className="row text-center ">
-          {/* <div className="col-lg-6">
-                        <h1 className="top-title mt-5">Taste The Joy Of...</h1>
-                    </div> */}
-        </div>
-
-        <div className="row text-center">
+        <div className="row text-center product-body">
           <div className="container">
 
             <div className="col-md-12 mt-5 ml-5 mb-5">
 
-              <h1 className="product-title text-center">Cookies</h1>
+              <h1 className="product-title text-center" id="Cookies">Cookies</h1>
               <div className="row card-center mb-5" >
-                {/* place card here */}
 
-                <ProductCard name={nameCC} img={imageCC} des={descriptionCC} price={priceCC}/>
-                <ProductCard name={namePBCC} img={imagePBCC} des={descriptionPBCC} price={pricePBCC} />
-                <ProductCard name={namePBMM} img={imagePBMM} des={descriptionPBMM} price={pricePBMM} />
-                <ProductCard name={nameMM} img={imageMM} des={descriptionMM} price={priceMM}/>
-                <ProductCard name={nameOR} img={imageOR} des={descriptionOR} price={priceOR}/>
-                <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM}/>
-                <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO}/>
+                <ProductCard name={nameCC} img={imageCC} des={descriptionCC} price={priceCC} isCookie={true} />
+                <ProductCard name={namePBCC} img={imagePBCC} des={descriptionPBCC} price={pricePBCC} isCookie={true} />
+                <ProductCard name={namePBMM} img={imagePBMM} des={descriptionPBMM} price={pricePBMM} isCookie={true} />
+                <ProductCard name={nameMM} img={imageMM} des={descriptionMM} price={priceMM} isCookie={true} />
+                <ProductCard name={nameOR} img={imageOR} des={descriptionOR} price={priceOR} isCookie={true} />
+                <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM} isCookie={true} />
+                <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO} isCookie={true} />
               </div>
 
-              <h1 className="product-title text-center mb-5">Cakes</h1>
+              <h1 className="product-title text-center mb-5" id="Cakes">Cakes</h1>
               <div className="row card-center" >
-                {/* place card here */}
-                <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC}/>
-                <ProductCard name={nameRV} img={imageRV} des={descriptionRV} price={priceRV}/>
-                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD}/>
-                <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD}/>
+
+                <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC} isCookie={false} />
+                <ProductCard name={nameRV} img={imageRV} des={descriptionRV} price={priceRV} isCookie={false} />
+                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD} isCookie={false} />
+                <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false} />
+                <ProductCard name={nameCarr} img={imageCarr} des={descriptionCarr} price={priceCarr} isCookie={false} />
                 {/* <ProductCard name="CHEESE CAKE" img={imageBPD} des={descriptionBPD}/> */}
               </div>
 
 
               <h1 className="product-title text-center mt-5">Cultural Treats</h1>
-              <div className="row card-center" >
-                {/* place card here */}
-                <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB}/>
-                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP}/>
+              <div className="row card-center" id="treats" >
+
+                <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB} isCookie={false} />
+                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false}/>
+              
               </div>
             </div>
           </div>

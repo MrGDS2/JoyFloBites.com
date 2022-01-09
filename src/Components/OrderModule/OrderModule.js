@@ -1,49 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import PhoneInput from 'react-phone-number-input';
-import ReCAPTCHA from "react-google-recaptcha";
-import './OrderModule.scss';
+import Recaptcha from 'react-google-recaptcha';
+import firebase from '../../Firebase';
+import CheckOutButton from '../CheckOutButton/CheckOutButton';
 import 'react-phone-number-input/style.css';
 import 'react-calendar/dist/Calendar.css';
-import QuantityButton from '../QuantityButton/QuantityButton';
-import CheckOutButton from '../CheckOutButton/CheckOutButton';
-
+import './OrderModule.scss';
 
 const OrderModule = (props) => {
-
-    let history = useHistory();
 
     const [modal, setModal] = useState(false);
     const [isVerified, setVerification] = useState(false);
     const [date, onDateChange] = useState(new Date());
 
-console.log("date: " + props.price)
-
     const [fullName, setFullName] = useState('');
     const [deliveryAddress, setDeliveryAddress] = useState('');
+    const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [eta, setETA] = useState('');
+    const [cookieSize, setCookieSize] = useState('');
+    const [cookiePrice, setCookiePrice] = useState('');
+
+    let history = useHistory();
+    let itemName = history.location.state.name;
+    let isCookie = history.location.state.isCookie;
     
-   
-
     const toggle = () => setModal(!modal);
+   
+    useEffect(() => {
+                 firebase.database().ref('Cookie Amount').child(cookieSize!==''?cookieSize:12)
+                 .once("value", snapshot  => {
+                 setCookiePrice(snapshot.val());
+                 
+              })
+    
+           console.log("order module: " + cookiePrice)
 
+            },[]);
+      
+    
+  
     const verifyCallback = () => {
         setVerification(true);
     }
+
+
+    const setModalRefresh = () => {
+        setModal(!modal);
+        clearForm();
+    }
+
+    const clearForm = () => {  
+      setFullName('');
+      setEmail('');
+      setPhoneNumber('');
+      setDeliveryAddress('');
+  }
+
+
+  const getWeekDays = (weekStart) => {
+    const days = [weekStart];
+    for (let i = 1; i < 7; i += 1) {
+      days.push(i);
+    }
+    return days;
+  }
   
+
     return (
         <div>
         <button className="order-btn" onClick={toggle}>Order Today</button>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className="modal-head-order">
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" onClick={() => setModal(!modal)} className="x-btn">&times;</span>
+                        <span aria-hidden="true" onClick={() => setModalRefresh()} className="x-btn">&times;</span>
                     </button>
-                    <ModalHeader className="bhm-primary text-white">Order Form</ModalHeader>
+                    <ModalHeader className="bhm-primary text-white">Please Fill out Order for:  {itemName}</ModalHeader>
                 </div>
                 <ModalBody className="font-weight-bold">
                     
@@ -60,38 +95,71 @@ console.log("date: " + props.price)
                             
                         </FormGroup>
 
+                        <FormGroup className="form-group required">
+                            <Label for="receipient name" className="d-block text-left control-label">Email</Label>
+                            <Input type="text" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your E-mail" title="Please put your name for us" required />
+                            
+                        </FormGroup>
+
                         <FormGroup >
                      <Label for="phone" className="d-block text-left">Phone</Label>
                      <PhoneInput placeholder="Example 914 208 9937" defaultCountry="US" value={phoneNumber} onChange={setPhoneNumber}/>
                  </FormGroup>
+
+                 <FormGroup className="form-group required">
+
+                 <Label for="phone" className="d-block text-left">Cookie Amount</Label>
+                            <Input type="select" name="amount" value={cookieSize} onChange={e => setCookieSize(e.target.value)} 
+                             title="Set cookie amount" disabled={!isCookie}>
+                                <option disabled > -- Select Cookie Amount -- </option>
+                                <option disabled>3</option>
+                                <option disabled>6</option>
+                                <option>12</option>
+                            </Input>
+                    </FormGroup>
+
+
 
                  
 
 
                   <FormGroup>
      
-                  {/* <Calendar
+                  <Calendar
                     onChange={onDateChange}
                     value={date}
-                    tileDisabled={({activeStartDate, date, view }) => date.getMonth()===11
-                     &&
-                    date.getDate() <= 5}
+                    tileDisabled={({activeStartDate, date, view }) =>  date.getTime}
                     className="calendar"
-                    /> */}
-                    </FormGroup>
+                    required/>
+
+
+                   
+                    
+                    </FormGroup>     
+                    
+                    
+                    
+
                         {/* <ReCAPTCHA className="mb-4 d-flex justify-content-center"
-                            sitekey={process.env.REACT_APP_SITE_KEY}
+                            sitekey={`6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI`}
                             onChange={verifyCallback}
                         /> */}
+                        <Recaptcha
+                         sitekey={ `6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI` }
+                         onResolved={ () => console.log( 'Human detected.' ),verifyCallback } />
 
                      {/* PayPalButton */}
                      
                      <CheckOutButton 
                      name={fullName} address={deliveryAddress}
                      toggle={toggle} phone={phoneNumber}
-                     isVerified={isVerified} eta={eta}
+                     email={email}
+                     isVerified={isVerified} eta={date}
+                     item={itemName}
                      modal={modal}
-                     price={props.price}
+                     price={isCookie?cookiePrice:props.price}
+
+
                      />
 
                     </Form>

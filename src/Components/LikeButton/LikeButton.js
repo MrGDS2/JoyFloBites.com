@@ -5,16 +5,17 @@ import firebase from '../../Firebase';
 
 import './LikeButton.scss';
 
-const Products = {
-    name: 'cookies'
-}
 
 class LikeButton extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { count:0 , likedName: this.props.name};
-        
+        this.state = { count:0 };
+        firebase.database().ref(this.props.name).child("Likes").once("value", snapshot => {
+            
+            this.setState({count: snapshot.val()})
+            console.log("likes: " + this.setState({count: snapshot.val()}));
+        });
     }
 
     incrementLike = () => {
@@ -31,8 +32,8 @@ class LikeButton extends Component {
         return (
 
             <div className="counter">
-  <Button type="submit" variant="danger" size="lg" onChange={this.handleCount} onClick={this.incrementLike}
-   {...Products} id="heart"> <ImHeart />  {this.state.count} Likes</Button>
+
+                <Button type="submit" variant="danger" size="lg" onClick={this.incrementLike} id="heart"> <ImHeart />  {this.state.count} Likes</Button>
 
             </div>
         )
