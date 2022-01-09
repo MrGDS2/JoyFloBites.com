@@ -1,17 +1,16 @@
 .header-info {
-    color: #000021;
-
+  color: #000021;
+}
+.top-link {
+  color: white;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width: 768px) {
+  .header-info {
+    display: none;
+  }
 
-    .header-info {
-        display: none;
-    }
-
-    hr {
-        display: none;
-    }
-
-
+  hr {
+    display: none;
+  }
 }

@@ -10,6 +10,8 @@ import './App.scss';
 import HeaderPage from './Components/HeaderPage/HeaderPage';
 import reportWebVitals from './reportWebVitals';
 import SlackCommunityPage from './Components/SlackCommunityPage/SlackCommunityPage';
+import Footer from './Components/Footer/Footer';
+
 
 
 const routing = (
@@ -25,15 +27,15 @@ const routing = (
                   {/* <Route path='/About' exact component={AboutPage} />
                   <Route path='/Services' exact component={ServicePage} />
                   <Route path='/Contact' exact component={ContactPage} /> */}
-          </Switch>
-          
-        
+    </Switch>
+    <Footer />
+
   </Router>
 
 )
 
 ReactDOM.render(
-routing,
+  routing,
   document.getElementById('root')
 );
 

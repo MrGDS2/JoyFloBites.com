@@ -30,17 +30,15 @@ const LandingPage = () => {
 
                 <div className="row">
                     <div className="col-md-12 mb-5">
-                        <button className="company-btn " onClick={onBtnClick}>Order Today <FaLongArrowAltRight /> 
+                        <button className="company-btn " onClick={onBtnClick}>Order Today <FaLongArrowAltRight />
                         </button>
                     </div>
                 </div>
             </div>
-           
-            <PopularPage /> 
-            <CommunityPage/>
+
+            <PopularPage />
+            <CommunityPage />
             <AboutPage />
-
-
 
         </React.Fragment>
     );
