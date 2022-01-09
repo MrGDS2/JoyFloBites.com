@@ -60,6 +60,16 @@ const OrderModule = (props) => {
       setDeliveryAddress('');
   }
 
+
+  const getWeekDays = (weekStart) => {
+    const days = [weekStart];
+    for (let i = 1; i < 7; i += 1) {
+      days.push(i);
+    }
+    return days;
+  }
+  
+
     return (
         <div>
         <button className="order-btn" onClick={toggle}>Order Today</button>
@@ -118,9 +128,7 @@ const OrderModule = (props) => {
                   <Calendar
                     onChange={onDateChange}
                     value={date}
-                    tileDisabled={({activeStartDate, date, view }) => date.getMonth()===11
-                     &&
-                    date.getDate() <= 5}
+                    tileDisabled={({activeStartDate, date, view }) =>  date.getTime}
                     className="calendar"
                     required/>
 
