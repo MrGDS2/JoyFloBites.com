@@ -18,7 +18,7 @@ const NavigationBar = () => {
                             <Nav.Item><Nav.Link href="/" activeclassname="selected" className="ml-5 mr-5">About</Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link activeclassname="selected" href="/Products" className="ml-5 mr-5">Bites</Nav.Link></Nav.Item>
                             <Nav.Item><Nav.Link activeclassname="selected" href="/#favs" className="ml-5 mr-5">Flo's Favs</Nav.Link></Nav.Item>
-                            <Nav.Item><Nav.Link activeclassname="selected" href="/Item" className="ml-5 mr-5">Community</Nav.Link></Nav.Item>
+                            <Nav.Item><Nav.Link activeclassname="selected" href="/Community" className="ml-5 mr-5">Community</Nav.Link></Nav.Item>
 
                         </Nav>
                     </Navbar.Collapse>
