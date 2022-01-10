@@ -2,6 +2,8 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import flour_logo from '../../Images/joyflo-bites-v1.png';
+
 const NavigationBar = () => {
 
 
@@ -24,7 +26,6 @@ const NavigationBar = () => {
                     </Navbar.Collapse>
                 </Navbar>
             </div>
-
         </React.Fragment>
     )
 

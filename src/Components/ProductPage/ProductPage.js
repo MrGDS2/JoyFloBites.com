@@ -4,7 +4,6 @@ import { RiArrowDropRightLine } from 'react-icons/ri';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ProductCard from "../MuiCard/MuiCard.js";
 import './ProductPage.scss';
-import ItemPurchase from '../ItemPurchase/ItemPurchase';
 
 const ProductsPage = () => {
 

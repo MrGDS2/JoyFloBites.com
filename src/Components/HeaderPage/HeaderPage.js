@@ -28,14 +28,14 @@ const HeaderPage = () => {
                     <div className="col-md-1 header-details">
 
                         <div className="row">
-                            <div className="col-md-4">
+                            <div className="col-md-4 tiktok">
                                 <a href="https://www.tiktok.com/@joyflobites?" className="top-link"><Button Button variant="dark">
                                     <SiTiktok />
 
                                 </Button>
                                 </a>
                             </div>
-                            <div className="col-md-4">
+                            <div className="col-md-4 instagram">
                                 <a href="https://www.instagram.com/joyflobites/" className="top-link">
                                     <Button Button variant="dark">
                                         <FaInstagram />
@@ -45,7 +45,7 @@ const HeaderPage = () => {
                             </div>
                             <div className="col-md-4">
                                 <a href="https://www.facebook.com/joyflobites" className="top-link">
-                                    <Button Button variant="dark">
+                                    <Button Button variant="dark" className="facebook">
                                         <ImFacebook />
 
                                     </Button>

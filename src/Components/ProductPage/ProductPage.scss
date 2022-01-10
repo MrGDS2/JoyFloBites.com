@@ -13,33 +13,18 @@
   font-family: "Finger Paint", cursive;
 }
 
-@media only screen and (max-width: 991px) {
-  .pop-card {
-    width: 57vw;
-  }
-
-  .popular-products {
-    margin-top: 70vw;
-  }
-
-  .react-stars {
-    margin-left: 14vw;
-  }
-}
-
 @media only screen and (max-width: 768px) {
-  .pop-card {
-    width: 57vw;
+
+  .card-center{
+    margin-left: 1.1rem !important;
   }
 
-  .card-col {
-    margin: 8vw;
-  }
-  .popular-products {
-    margin-top: 70vw;
-  }
+  .product-title {
+    margin-left: -21vw;
+    font-size: 20vw;
 
-  .react-stars {
-    margin-left: 13vw;
   }
+ 
+
+  
 }
