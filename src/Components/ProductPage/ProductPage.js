@@ -109,6 +109,11 @@ const ProductsPage = () => {
   const [descriptionBB, setDescriptionBB] = useState('');
   const [priceBB, setPriceBB] = useState('');
 
+    //Pecan Bars
+    const [namePB, setNamePB] = useState('');
+    const [imagePB, setImagePB] = useState('');
+    const [descriptionPB, setDescriptionPB] = useState('');
+    const [pricePB, setPricePB] = useState('');
 
 
 
@@ -221,6 +226,13 @@ const ProductsPage = () => {
       setPriceMP(snapshot.child("price").val());
     });
 
+    firebase.database().ref("Pecan Bars").once("value", snapshot => {
+      setNamePB(snapshot.child("name").val());
+      setImagePB(snapshot.child("image").val());
+      setDescriptionPB(snapshot.child("description").val());
+      setPricePB(snapshot.child("price").val());
+    });
+
 
 
   }, []);
@@ -268,7 +280,7 @@ const ProductsPage = () => {
 
                 <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB} isCookie={false} />
                 <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false}/>
-              
+                <ProductCard name={namePB} img={imagePB} des={descriptionPB} price={pricePB} isCookie={false}/>
               </div>
             </div>
           </div>

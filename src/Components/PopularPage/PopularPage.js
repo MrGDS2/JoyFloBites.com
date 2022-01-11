@@ -5,9 +5,6 @@ import './PopularPage.scss';
 
 const PopularPage = () => {
 
-    const ratingChanged = (newRating) => {
-        console.log(newRating);
-    };
 
     return (
 

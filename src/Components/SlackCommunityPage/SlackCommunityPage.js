@@ -8,16 +8,13 @@ import flour_logo from '../../Images/joyflo-bites-v1.png';
 import swal from 'sweetalert2';
 import axios from 'axios';
 import firebase from '../../Firebase';
-import ReCAPTCHA from "react-google-recaptcha";
 import './SlackCommunityPage.scss';
 
 
 
 const SlackCommunityPage = () => {
 
-    
 
-    const [isVerified, setVerification] = useState(false);
     const [message, setMessage] = useState('');
     const [webHookURL,setWebHook]= useState('');
 
@@ -33,10 +30,6 @@ const SlackCommunityPage = () => {
 
     }, [])
 
-
-    const verifyCallback = () => {
-        setVerification(true);
-    }
 
 
     const handleSubmit = (e) => {

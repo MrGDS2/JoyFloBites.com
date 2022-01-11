@@ -5,7 +5,7 @@ import QuantityButton from '../QuantityButton/QuantityButton';
 
 const CheckOutButton = (props) => {
 
-    const isEnabled = props.name.length > 0 && props.isVerified==true;
+    const isEnabled = props.name.length > 0 && props.isVerified===true;
 
 
     console.log("price: " + props.price)
@@ -19,7 +19,6 @@ const CheckOutButton = (props) => {
             name={props.name}
             email={props.email}
             eta={props.eta}
-            price={props.eta}
             address={props.address}
             phone={props.phone}
             item={props.item}

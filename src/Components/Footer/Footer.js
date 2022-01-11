@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import floIcon from '../../Images/joyflo-bites-v1.png';
 import './Footer.scss';
