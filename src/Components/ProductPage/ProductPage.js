@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../Firebase';
+import BorderWrapper from 'react-border-wrapper';
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ProductCard from "../MuiCard/MuiCard.js";
@@ -48,6 +49,14 @@ const ProductsPage = () => {
   const [imageOR, setImageOR] = useState('');
   const [descriptionOR, setDescriptionOR] = useState('');
   const [priceOR, setPriceOR] = useState('');
+
+  //Oatmeal CC
+  const [nameOMCC, setNameOMCC] = useState('');
+  const [imageOMCC, setImageOMCC] = useState('');
+  const [descriptionOMCC, setDescriptionOMCC] = useState('');
+  const [priceOMCC, setPriceOMCC] = useState('');
+
+
 
   //White chocolate macadamia
   const [nameWCM, setNameWCM] = useState('');
@@ -109,12 +118,18 @@ const ProductsPage = () => {
   const [descriptionBB, setDescriptionBB] = useState('');
   const [priceBB, setPriceBB] = useState('');
 
-    //Pecan Bars
-    const [namePB, setNamePB] = useState('');
-    const [imagePB, setImagePB] = useState('');
-    const [descriptionPB, setDescriptionPB] = useState('');
-    const [pricePB, setPricePB] = useState('');
+  //Pecan Bars
+  const [namePB, setNamePB] = useState('');
+  const [imagePB, setImagePB] = useState('');
+  const [descriptionPB, setDescriptionPB] = useState('');
+  const [pricePB, setPricePB] = useState('');
 
+
+  //Carrot Cake MINI
+  const [nameCCM, setNameCCM] = useState('');
+  const [imageCCM, setImageCCM] = useState('');
+  const [descriptionCCM, setDescriptionCCM] = useState('');
+  const [priceCCM, setPriceCCM] = useState('');
 
 
   useEffect(() => {
@@ -154,6 +169,15 @@ const ProductsPage = () => {
       setPriceOR(snapshot.child("price").val());
     });
 
+   
+    firebase.database().ref("Oatmeal Chocolate Chip").once("value", snapshot => {
+      setNameOMCC(snapshot.child("name").val());
+      setImageOMCC(snapshot.child("image").val());
+      setDescriptionOMCC(snapshot.child("description").val());
+      setPriceOMCC(snapshot.child("price").val());
+    });
+
+
     firebase.database().ref("White Chocolate Macadamia").once("value", snapshot => {
       setNameWCM(snapshot.child("name").val());
       setImageWCM(snapshot.child("image").val());
@@ -161,6 +185,7 @@ const ProductsPage = () => {
       setPriceWCM(snapshot.child("price").val());
 
     });
+
     firebase.database().ref("Toasted Coconut").once("value", snapshot => {
       setNameCOCO(snapshot.child("name").val());
       setImageCOCO(snapshot.child("image").val());
@@ -208,9 +233,8 @@ const ProductsPage = () => {
     });
 
 
-    //cultural treats
 
-
+    //treats
     firebase.database().ref("Banana Bread").once("value", snapshot => {
       setNameBB(snapshot.child("name").val());
       setImageBB(snapshot.child("image").val());
@@ -219,6 +243,22 @@ const ProductsPage = () => {
     });
 
 
+    firebase.database().ref("Pecan Bars").once("value", snapshot => {
+      setNamePB(snapshot.child("name").val());
+      setImagePB(snapshot.child("image").val());
+      setDescriptionPB(snapshot.child("description").val());
+      setPricePB(snapshot.child("price").val());
+    });
+
+    
+    firebase.database().ref("Carrot Cake MINIs").once("value", snapshot => {
+      setNameCCM(snapshot.child("name").val());
+      setImageCCM(snapshot.child("image").val());
+      setDescriptionCCM(snapshot.child("description").val());
+      setPriceCCM(snapshot.child("price").val());
+    });
+
+    //cultural Bites
     firebase.database().ref("Nigerian Meat pies").once("value", snapshot => {
       setNameMP(snapshot.child("name").val());
       setImageMP(snapshot.child("image").val());
@@ -226,12 +266,6 @@ const ProductsPage = () => {
       setPriceMP(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Pecan Bars").once("value", snapshot => {
-      setNamePB(snapshot.child("name").val());
-      setImagePB(snapshot.child("image").val());
-      setDescriptionPB(snapshot.child("description").val());
-      setPricePB(snapshot.child("price").val());
-    });
 
 
 
@@ -259,6 +293,7 @@ const ProductsPage = () => {
                 <ProductCard name={namePBMM} img={imagePBMM} des={descriptionPBMM} price={pricePBMM} isCookie={true} />
                 <ProductCard name={nameMM} img={imageMM} des={descriptionMM} price={priceMM} isCookie={true} />
                 <ProductCard name={nameOR} img={imageOR} des={descriptionOR} price={priceOR} isCookie={true} />
+                <ProductCard name={nameOMCC} img={imageOMCC} des={descriptionOMCC} price={priceOMCC} isCookie={true} />
                 <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM} isCookie={true} />
                 <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO} isCookie={true} />
               </div>
@@ -274,13 +309,19 @@ const ProductsPage = () => {
                 {/* <ProductCard name="CHEESE CAKE" img={imageBPD} des={descriptionBPD}/> */}
               </div>
 
-
-              <h1 className="product-title text-center mt-5">Cultural Treats</h1>
+              <h1 className="product-title text-center mt-5">Treats</h1>
               <div className="row card-center" id="treats" >
 
                 <ProductCard name={nameBB} img={imageBB} des={descriptionBB} price={priceBB} isCookie={false} />
-                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false}/>
-                <ProductCard name={namePB} img={imagePB} des={descriptionPB} price={pricePB} isCookie={false}/>
+                <ProductCard name={nameCCM} img={imageCCM} des={descriptionCCM} price={priceCCM} isCookie={false} />
+                <ProductCard name={namePB} img={imagePB} des={descriptionPB} price={pricePB} isCookie={false} />
+              </div>
+
+              <h1 className="product-title text-center mt-5">Cultural Bites</h1>
+              <div className="row card-center" id="treats" >
+
+                <ProductCard name={nameMP} img={imageMP} des={descriptionMP} price={priceMP} isCookie={false} />
+
               </div>
             </div>
           </div>
