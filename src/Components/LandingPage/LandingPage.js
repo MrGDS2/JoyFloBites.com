@@ -22,7 +22,6 @@ const LandingPage = () => {
                     <div className="container text-center">
                         <div className="col-md-12">
                             <img src={Logo} className="company-name" alt="floLogo" />
-
                         </div>
 
                     </div>
@@ -30,7 +29,7 @@ const LandingPage = () => {
 
                 <div className="row">
                     <div className="col-md-12 mb-5">
-                        <button className="company-btn " onClick={onBtnClick}>Order Today <FaLongArrowAltRight />
+                        <button className="company-btn" onClick={onBtnClick}>Order Today <FaLongArrowAltRight />
                         </button>
                     </div>
                 </div>

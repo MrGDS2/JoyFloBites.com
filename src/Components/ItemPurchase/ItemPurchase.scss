@@ -33,3 +33,23 @@ $btn-hover-text: black;
     background-color: $btn-hover;
     color: $btn-hover-text;
 }
+
+
+@media only screen and (max-width:991px) {
+   
+    .order-btn {
+        width: 324px;   
+    }
+
+    #second {
+        display: none; 
+        order: 2!important;
+       
+       }
+    #first {
+        order: 1!important;
+        margin-left: 0rem !important;
+     }
+   
+    
+}

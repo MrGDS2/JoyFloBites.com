@@ -6,11 +6,12 @@ import ProductsPage from '../src/Components/ProductPage/ProductPage';
 import ItemPage from '../src/Components/ItemPurchase/ItemPurchase';
 import OrderModule from './Components/OrderModule/OrderModule';
 import NavigationBar from '../src/Components/NavigationBar/NavigationBar';
-import './App.scss';
 import HeaderPage from './Components/HeaderPage/HeaderPage';
 import reportWebVitals from './reportWebVitals';
 import SlackCommunityPage from './Components/SlackCommunityPage/SlackCommunityPage';
 import Footer from './Components/Footer/Footer';
+import './App.scss';
+
 
 
 

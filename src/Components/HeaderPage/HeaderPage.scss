@@ -5,8 +5,24 @@
   color: white;
 }
 
+
+.video-link {
+  color: rgb(156, 1, 1);
+}
+
+@media only screen and (max-width: 1189px) {
+
+  .facebook{
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .header-info {
+    display: none;
+  }
+
+  .facebook{
     display: none;
   }
 

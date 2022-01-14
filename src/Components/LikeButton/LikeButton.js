@@ -14,7 +14,6 @@ class LikeButton extends Component {
         firebase.database().ref(this.props.name).child("Likes").once("value", snapshot => {
             
             this.setState({count: snapshot.val()})
-            console.log("likes: " + this.setState({count: snapshot.val()}));
         });
     }
 

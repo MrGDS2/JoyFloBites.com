@@ -1,4 +1,4 @@
-import React, { useState ,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
@@ -21,28 +21,27 @@ const OrderModule = (props) => {
     const [deliveryAddress, setDeliveryAddress] = useState('');
     const [email, setEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [cookieSize, setCookieSize] = useState('');
+    const [cookieSize, setCookieSize] = useState(12);
     const [cookiePrice, setCookiePrice] = useState('');
 
     let history = useHistory();
     let itemName = history.location.state.name;
     let isCookie = history.location.state.isCookie;
-    
-    const toggle = () => setModal(!modal);
-   
-    useEffect(() => {
-                 firebase.database().ref('Cookie Amount').child(cookieSize!==''?cookieSize:12)
-                 .once("value", snapshot  => {
-                 setCookiePrice(snapshot.val());
-                 
-              })
-    
-           console.log("order module: " + cookiePrice)
 
-            },[]);
-      
-    
-  
+    const toggle = () => setModal(!modal);
+
+    useEffect(() => {
+
+        firebase.database().ref('Cookie Amount')
+            .once("value", snapshot => {
+                setCookiePrice(snapshot.child(cookieSize).val());
+
+            })
+
+    });
+
+
+
     const verifyCallback = () => {
         setVerification(true);
     }
@@ -53,26 +52,17 @@ const OrderModule = (props) => {
         clearForm();
     }
 
-    const clearForm = () => {  
-      setFullName('');
-      setEmail('');
-      setPhoneNumber('');
-      setDeliveryAddress('');
-  }
-
-
-  const getWeekDays = (weekStart) => {
-    const days = [weekStart];
-    for (let i = 1; i < 7; i += 1) {
-      days.push(i);
+    const clearForm = () => {
+        setFullName('');
+        setEmail('');
+        setPhoneNumber('');
+        setDeliveryAddress('');
     }
-    return days;
-  }
-  
+
 
     return (
         <div>
-        <button className="order-btn" onClick={toggle}>Order Today</button>
+            <button className="order-btn" onClick={toggle}>Order Today</button>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className="modal-head-order">
                     <button type="button" className="close" data-dismiss="modal" aria-label="Close">
@@ -81,7 +71,7 @@ const OrderModule = (props) => {
                     <ModalHeader className="bhm-primary text-white">Please Fill out Order for:  {itemName}</ModalHeader>
                 </div>
                 <ModalBody className="font-weight-bold">
-                    
+
                     <Form>
                         <FormGroup className="form-group required">
                             <Label for="receipient name" className="d-block text-left control-label">Full Name</Label>
@@ -92,75 +82,56 @@ const OrderModule = (props) => {
                         <FormGroup className="form-group required">
                             <Label for="receipient name" className="d-block text-left control-label">Address</Label>
                             <Input type="text" name="address" value={deliveryAddress} onChange={e => setDeliveryAddress(e.target.value)} placeholder="Your Address" title="Please put your address for us" required />
-                            
+
                         </FormGroup>
 
                         <FormGroup className="form-group required">
                             <Label for="receipient name" className="d-block text-left control-label">Email</Label>
                             <Input type="text" name="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Your E-mail" title="Please put your name for us" required />
-                            
+
                         </FormGroup>
 
                         <FormGroup >
-                     <Label for="phone" className="d-block text-left">Phone</Label>
-                     <PhoneInput placeholder="Example 914 208 9937" defaultCountry="US" value={phoneNumber} onChange={setPhoneNumber}/>
-                 </FormGroup>
+                            <Label for="phone" className="d-block text-left">Phone</Label>
+                            <PhoneInput placeholder="Example 914 208 9937" defaultCountry="US" value={phoneNumber} onChange={setPhoneNumber} />
+                        </FormGroup>
 
-                 <FormGroup className="form-group required">
+                        <FormGroup className="form-group required">
 
-                 <Label for="phone" className="d-block text-left">Cookie Amount</Label>
-                            <Input type="select" name="amount" value={cookieSize} onChange={e => setCookieSize(e.target.value)} 
-                             title="Set cookie amount" disabled={!isCookie}>
-                                <option disabled > -- Select Cookie Amount -- </option>
-                                <option disabled>3</option>
-                                <option disabled>6</option>
+                            <Label for="phone" className="d-block text-left">Cookie Amount</Label>
+                            <Input type="select" name="amount" value={cookieSize} onChange={e => setCookieSize(e.target.value)}
+                                title="Set cookie amount" disabled={!isCookie}>
+                                <option disabled={true} > -- Select Cookie Amount -- </option>
                                 <option>12</option>
                             </Input>
-                    </FormGroup>
+                        </FormGroup>
+                        <FormGroup>
+
+                            <Calendar
+                                onChange={onDateChange}
+                                value={date}
+                                className="calendar"
+                                required />
+                        </FormGroup>
 
 
 
-                 
+                         <Recaptcha className="mb-4 d-flex justify-content-center"
+                            sitekey={process.env.REACT_APP_SITE_KEY}
+                            onChange={verifyCallback}/>
 
+    
+                        {/* PayPalButton */}
 
-                  <FormGroup>
-     
-                  <Calendar
-                    onChange={onDateChange}
-                    value={date}
-                    tileDisabled={({activeStartDate, date, view }) =>  date.getTime}
-                    className="calendar"
-                    required/>
-
-
-                   
-                    
-                    </FormGroup>     
-                    
-                    
-                    
-
-                        {/* <ReCAPTCHA className="mb-4 d-flex justify-content-center"
-                            sitekey={`6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI`}
-                            onChange={verifyCallback}
-                        /> */}
-                        <Recaptcha
-                         sitekey={ `6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI` }
-                         onResolved={ () => console.log( 'Human detected.' ),verifyCallback } />
-
-                     {/* PayPalButton */}
-                     
-                     <CheckOutButton 
-                     name={fullName} address={deliveryAddress}
-                     toggle={toggle} phone={phoneNumber}
-                     email={email}
-                     isVerified={isVerified} eta={date}
-                     item={itemName}
-                     modal={modal}
-                     price={isCookie?cookiePrice:props.price}
-
-
-                     />
+                        <CheckOutButton
+                            name={fullName} address={deliveryAddress}
+                            toggle={toggle} phone={phoneNumber}
+                            email={email}
+                            isVerified={isVerified} eta={date}
+                            item={itemName}
+                            modal={modal}
+                            price={isCookie ? cookiePrice : props.price}
+                        />
 
                     </Form>
                 </ModalBody>

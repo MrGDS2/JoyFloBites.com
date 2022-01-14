@@ -8,16 +8,13 @@ import flour_logo from '../../Images/joyflo-bites-v1.png';
 import swal from 'sweetalert2';
 import axios from 'axios';
 import firebase from '../../Firebase';
-import ReCAPTCHA from "react-google-recaptcha";
 import './SlackCommunityPage.scss';
 
 
 
 const SlackCommunityPage = () => {
 
-    
 
-    const [isVerified, setVerification] = useState(false);
     const [message, setMessage] = useState('');
     const [webHookURL,setWebHook]= useState('');
 
@@ -32,11 +29,7 @@ const SlackCommunityPage = () => {
 
 
     }, [])
-    
 
-    const verifyCallback = () => {
-        setVerification(true);
-    }
 
 
     const handleSubmit = (e) => {
@@ -80,7 +73,7 @@ const SlackCommunityPage = () => {
 
                     <div className="row row-centered">
                         <div className="col-md-12">
-                            <img src={flour_logo} width="700" height="500" alt="logo" />
+                            <img src={flour_logo} className="flo-image" width="700" height="500" alt="logo" />
                             <h1 className="feed-text mt-5">Your FeedBack Is Important!</h1>
                         </div>
 
