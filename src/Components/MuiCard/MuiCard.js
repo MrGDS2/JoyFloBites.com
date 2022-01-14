@@ -13,7 +13,7 @@ export default function MultiActionAreaCard(props) {
   let history = useHistory();
   //pass a state to item page
   const onItemClick = () => {
-    history.push({ pathname: "/Item", state: { name: props.name, img: props.img, ingredients: props.des, price: props.price, isCookie: props.isCookie } });
+    history.push({ pathname: "/item", state: { name: props.name, img: props.img, ingredients: props.des, price: props.price, isCookie: props.isCookie } });
   }
 
 

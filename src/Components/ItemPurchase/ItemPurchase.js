@@ -11,9 +11,6 @@ const ItemPurchase = () => {
 
   let history = useHistory();
    
-// console.log("isCookie: " + history.location.state.isCookie);
-
-
     return (
         <React.Fragment>
  <div className="container">

@@ -21,10 +21,10 @@ const routing = (
            <NavigationBar/>
           <Switch>
                   <Route path='/' exact component={LandingPage} />
-                  <Route path='/Products' exact component={ProductsPage} />
-                  <Route path='/Item' exact component={ItemPage} />
-                  <Route path='/Order' exact component={OrderModule} />
-                  <Route path='/Community' exact component={SlackCommunityPage} />
+                  <Route path='/products' exact component={ProductsPage} />
+                  <Route path='/item' exact component={ItemPage} />
+                  <Route path='/order' exact component={OrderModule} />
+                  <Route path='/community' exact component={SlackCommunityPage} />
                   {/* <Route path='/About' exact component={AboutPage} />
                   <Route path='/Services' exact component={ServicePage} />
                   <Route path='/Contact' exact component={ContactPage} /> */}
