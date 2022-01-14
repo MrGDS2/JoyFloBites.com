@@ -42,10 +42,10 @@ class QuantityButton extends Component {
   handleVerification = (templateParams) => {
 
     emailjs.send(
-      "joyflobites",
-      "template_scoc1g8",
+      process.env.REACT_APP_SERVICE_ID,
+      process.env.REACT_APP_TEMPLATE,
       templateParams,
-      "user_AwR89hPpLp9fVHKarAVvX"
+      process.env.REACT_APP_USER_ID_EMAILJS
     ).then(function (response) {
       console.log("Message sent to JoyFloBites");
       //alert

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import firebase from '../../Firebase';
-import BorderWrapper from 'react-border-wrapper';
 import { RiArrowDropRightLine } from 'react-icons/ri';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import ProductCard from "../MuiCard/MuiCard.js";

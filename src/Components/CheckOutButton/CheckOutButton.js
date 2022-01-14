@@ -7,8 +7,6 @@ const CheckOutButton = (props) => {
 
     const isEnabled = props.name.length > 0 && props.isVerified===true;
 
-
-    console.log("price: " + props.price)
     return (
 
         <React.Fragment>
