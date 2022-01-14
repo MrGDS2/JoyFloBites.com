@@ -12,7 +12,7 @@ const LandingPage = () => {
     let history = useHistory();
 
     const onBtnClick = () => {
-        history.push('/Products');
+        history.push('/products');
     }
 
     return (
