@@ -3,7 +3,6 @@ import Logo from '../../Images/joyflo-bites-v3.png';
 import { useHistory } from 'react-router-dom';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import AboutPage from '../AboutPage/AboutPage';
-import PopularPage from '../PopularPage/PopularPage';
 import './LandingPage.scss';
 import ReviewPage from '../ReviewPage/ReviewPage';
 
