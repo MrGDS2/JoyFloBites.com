@@ -40,8 +40,13 @@ $btn-hover-text: white;
 
 @media only screen and (max-width:768px) {
 
-.about-title {
-    font-size: 10vw;
-    color: white;
-}
+    .about-title {
+        font-size: 10vw;
+        color: white;
+    }
+
+    .about-description {
+
+        margin-top: 273px;
+    }
 }
