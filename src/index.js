@@ -17,17 +17,14 @@ import './App.scss';
 
 const routing = (
   <Router>
-          <HeaderPage/>
-           <NavigationBar/>
-          <Switch>
-                  <Route path='/' exact component={LandingPage} />
-                  <Route path='/products' exact component={ProductsPage} />
-                  <Route path='/item' exact component={ItemPage} />
-                  <Route path='/order' exact component={OrderModule} />
-                  <Route path='/community' exact component={SlackCommunityPage} />
-                  {/* <Route path='/About' exact component={AboutPage} />
-                  <Route path='/Services' exact component={ServicePage} />
-                  <Route path='/Contact' exact component={ContactPage} /> */}
+    <HeaderPage />
+    <NavigationBar />
+    <Switch>
+      <Route path='/' exact component={LandingPage} />
+      <Route path='/products' exact component={ProductsPage} />
+      <Route path='/item' exact component={ItemPage} />
+      <Route path='/order' exact component={OrderModule} />
+      <Route path='/community' exact component={SlackCommunityPage} />
     </Switch>
     <Footer />
 
