@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ModalVideo from 'react-modal-video';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import './AboutPage.scss';
 
 
 
 const AboutPage = () => {
+
+    const [isOpen, setOpen] = useState(false);
 
     return (
         <React.Fragment>
@@ -15,8 +18,9 @@ const AboutPage = () => {
                             <h1 className="about-title">About Flo's Bites</h1>
                         </div>
                         <div className="col-md-12 about-text mt-5">
-                            <p><b>JoyFlo Bites is a home based business that was birthed through daring creativity in the midst of a pandemic in 2020. It all started with a desire to learn how to bake things from scratch, that began with over ripe bananas. Can you say banana bread? Whether it’s our fresh baked cookies, cakes or cultural treats no matter what we make here at JoyFlo bites; the ultimate goal is to leave your tastebuds experiencing “a taste of joy in every bite”.  From day one, the support of its customers has been unmatched. Who would have thought a business would be produced by learning a new hobby? And still in the game over a year later, we plan to grow in skill and proficiency in every bite that is produced. Order your next bite and see why customers are raving and coming back for more.</b></p>
-                            <button className="about-btn mt-3 mb-5">View More<FaLongArrowAltRight /></button>
+                        <ModalVideo channel='custom' autoplay isOpen={isOpen} url="https://firebasestorage.googleapis.com/v0/b/joyflobites.appspot.com/o/Videos%2FJoyFloBites_Trailer.mp4?alt=media&token=30cf32d3-35bf-418c-997a-548cf1745507" onClose={() => setOpen(false)} />
+                            <p><b>JoyFlo Bites is a home based business that seeks to spread a little joy in every bite. It was birthed through a desire to learn something new in the midst of being quarantined in a pandemic in 2020. So we chose to learn to bake from scratch and it started with having some over ripe bananas on deck. Can you say banana bread? Whether it`s our fresh baked cookies, cakes or cultural bites and treats, no matter what we make here at JoyFlo bites; the ultimate goal is to leave your tastebuds experiencing “a taste of joy in every bite”.  From day one, the support of its customers has been unmatched. Who would have thought a business would be produced by learning a new hobby? Still till in the game over a year later, we plan to grow in skill and proficiency with every bite that is produced. Order your next bite and see why customers are raving and coming back for more.</b></p>
+                            <button className="about-btn mt-3 mb-5" onClick={() => setOpen(true)}>View More<FaLongArrowAltRight /></button>
                         </div>
                     </div>
                 </div>
