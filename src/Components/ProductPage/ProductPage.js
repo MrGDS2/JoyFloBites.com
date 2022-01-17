@@ -6,8 +6,7 @@ import ProductCard from "../MuiCard/MuiCard.js";
 import './ProductPage.scss';
 
 const ProductsPage = () => {
-
-
+       
   /**Cookies**/
   //Chocolatechip
   const [nameCC, setNameCC] = useState('');
@@ -275,7 +274,7 @@ const ProductsPage = () => {
       <div className="popular-products product-body" id="about">
         <div className="row text-center ">
           <div className="col-lg-6 product-body product-title">
-            <h6 className="link-tree mt-5 ">Home <RiArrowDropRightLine /> Products</h6>
+            <h6 className="link-tree mt-5 "><a href="/">Home</a> <RiArrowDropRightLine /> Products</h6>
           </div>
         </div>
 
