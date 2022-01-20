@@ -73,7 +73,9 @@ const SlackCommunityPage = () => {
 
                     <div className="row row-centered">
                         <div className="col-md-12">
-                            <img src={flour_logo} className="flo-image" width="700" height="500" alt="logo" />
+                            <div className='container'>
+                            <img src={flour_logo} className="flo-image" alt="logo" />
+                            </div>
                             <h1 className="feed-text mt-5">Your FeedBack Is Important!</h1>
                         </div>
 

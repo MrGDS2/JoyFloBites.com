@@ -301,10 +301,10 @@ const ProductsPage = () => {
 
                 <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC} isCookie={false} />
                 <ProductCard name={nameRV} img={imageRV} des={descriptionRV} price={priceRV} isCookie={false} />
-                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD} isCookie={false} />
+                
                 <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false} />
                 <ProductCard name={nameCarr} img={imageCarr} des={descriptionCarr} price={priceCarr} isCookie={false} />
-                {/* <ProductCard name="CHEESE CAKE" img={imageBPD} des={descriptionBPD}/> */}
+                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD} isCookie={false} />
               </div>
 
               <h1 className="product-title text-center mt-5">Treats</h1>
