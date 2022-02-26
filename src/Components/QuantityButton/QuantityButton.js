@@ -11,7 +11,8 @@ class QuantityButton extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicks: 1,
+      clicks: 2,
+      button: 'Please Fill in information',
       show: true,
       checkout: false,
       modal: this.props.modal,
@@ -77,7 +78,7 @@ class QuantityButton extends Component {
   }
 
   ResetItem = () => {
-    this.setState({ clicks: 1, total: this.props.price });
+    this.setState({ clicks: 2, total: this.props.price });
 
   }
 
@@ -130,7 +131,7 @@ class QuantityButton extends Component {
           <div className="container ml-5" id="checkout-btn">
             <Button onClick={() => this.setState({ checkout: true })}
               size="lg" className="mb-5" disabled={!this.props.isEnabled} >
-              Please Fill in information</Button>
+              {this.props.isEnabled?'Click to Complete Checkout':this.state.button}</Button>
           </div>
 
         )}
