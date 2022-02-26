@@ -292,7 +292,7 @@ const ProductsPage = () => {
                 <ProductCard name={nameMM} img={imageMM} des={descriptionMM} price={priceMM} isCookie={true} />
                 <ProductCard name={nameOR} img={imageOR} des={descriptionOR} price={priceOR} isCookie={true} />
                 <ProductCard name={nameOMCC} img={imageOMCC} des={descriptionOMCC} price={priceOMCC} isCookie={true} />
-                <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM} isCookie={true} />
+                <ProductCard name={nameWCM} img={imageWCM} des={descriptionWCM} price={priceWCM} isCookie={false} />
                 <ProductCard name={nameCOCO} img={imageCOCO} des={descriptionCOCO} price={priceCOCO} isCookie={true} />
               </div>
 

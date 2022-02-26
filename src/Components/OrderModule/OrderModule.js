@@ -106,12 +106,13 @@ const OrderModule = (props) => {
                             </Input>
                         </FormGroup>
                         <FormGroup>
-
+                            <h6 className='side-note'><b>*Please allow up to 2 business days to handle order request</b></h6>
                             <Calendar
                                 onChange={onDateChange}
                                 value={date}
                                 className="calendar"
                                 required />
+                               
                         </FormGroup>
 
 
