@@ -107,7 +107,7 @@ class QuantityButton extends Component {
           </div>
           <div className="col-md-3">
 
-            <p className="ml-md-4  text-center">Total: ${this.state.total} </p>
+            <p className="ml-md-4  text-center total-price">Total: ${this.state.total} </p>
           </div>
         </div>
 
