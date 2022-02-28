@@ -304,7 +304,6 @@ const ProductsPage = () => {
                 
                 <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false} />
                 <ProductCard name={nameCarr} img={imageCarr} des={descriptionCarr} price={priceCarr} isCookie={false} />
-                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD} isCookie={false} />
               </div>
 
               <h1 className="product-title text-center mt-5">Treats</h1>
