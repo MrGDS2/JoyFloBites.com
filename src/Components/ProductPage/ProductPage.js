@@ -197,7 +197,6 @@ const ProductsPage = () => {
       setPriceCOCO(snapshot.child("price").val());
     });
 
-
     //cakes 
 
     firebase.database().ref("Louisiana Crunch Cake").once("value", snapshot => {
