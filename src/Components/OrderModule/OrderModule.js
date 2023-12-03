@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 import Calendar from 'react-calendar';
 import PhoneInput from 'react-phone-number-input';
 import Recaptcha from 'react-google-recaptcha';
@@ -23,6 +25,7 @@ const OrderModule = (props) => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [cookieSize, setCookieSize] = useState(12);
     const [cookiePrice, setCookiePrice] = useState('');
+    const [specialNote, setSpecialNote] = useState('');
 
     let history = useHistory();
     let itemName = history.location.state.name;
@@ -40,8 +43,6 @@ const OrderModule = (props) => {
 
     });
 
-
-
     const verifyCallback = () => {
         setVerification(true);
     }
@@ -57,6 +58,7 @@ const OrderModule = (props) => {
         setEmail('');
         setPhoneNumber('');
         setDeliveryAddress('');
+        setSpecialNote('');
     }
 
 
@@ -106,23 +108,44 @@ const OrderModule = (props) => {
                             </Input>
                         </FormGroup>
                         <FormGroup>
-                            <h6 className='side-note'><b>*Please allow up to 2 business days to handle order request</b></h6>
+                            <h6 className='side-note'><b>*Please allow up to 5 business days to handle order request</b></h6>
                             <Calendar
                                 onChange={onDateChange}
                                 value={date}
                                 className="calendar"
                                 required />
-                               
+                            <center>
+                                <Box
+                                    component="form"
+                                    sx={{
+                                        '& .MuiTextField-root': { m: 1, width: '400px' },
+                                    }}
+                                    noValidate
+                                    autoComplete="off"
+                                >
+                                    <TextField
+                                        id="outlined-multiline-static"
+                                        label="For special request to order please write below"
+                                        multiline
+                                        rows={4}
+                                        placeholder=" Enter special request here"
+                                        variant="filled"
+                                        value={specialNote}
+                                        onChange={(e) => setSpecialNote(e.target.value)}
+
+                                    />
+                                </Box>
+                            </center>
                         </FormGroup>
 
 
 
-                         <Recaptcha className="mb-4 d-flex justify-content-center"
+                        <Recaptcha className="mb-4 d-flex justify-content-center"
                             sitekey={process.env.REACT_APP_SITE_KEY}
                             onChange={verifyCallback}
-                            />
+                        />
 
-    
+
                         {/* PayPalButton */}
 
                         <CheckOutButton

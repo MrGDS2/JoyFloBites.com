@@ -6,7 +6,7 @@ import ProductCard from "../MuiCard/MuiCard.js";
 import './ProductPage.scss';
 
 const ProductsPage = () => {
-       
+
   /**Cookies**/
   //Chocolatechip
   const [nameCC, setNameCC] = useState('');
@@ -93,6 +93,12 @@ const ProductsPage = () => {
   const [descriptionCarr, setDescriptionCarr] = useState('');
   const [priceCarr, setPriceCarr] = useState('');
 
+  //Peach Cobbler Pound Cake
+  const [namePCPC, setNamePCPC] = useState('');
+  const [imagePCPC, setImagePCPC] = useState('');
+  const [descriptionPCPC, setDescriptionPCPC] = useState('');
+  const [pricePCPC, setPricePCPC] = useState('');
+
 
 
   /***Cultural treat */
@@ -160,7 +166,7 @@ const ProductsPage = () => {
       setPriceOR(snapshot.child("price").val());
     });
 
-   
+
     firebase.database().ref("Oatmeal Chocolate Chip").once("value", snapshot => {
       setNameOMCC(snapshot.child("name").val());
       setImageOMCC(snapshot.child("image").val());
@@ -183,7 +189,6 @@ const ProductsPage = () => {
       setDescriptionCOCO(snapshot.child("description").val());
       setPriceCOCO(snapshot.child("price").val());
     });
-
 
     //cakes 
 
@@ -217,6 +222,13 @@ const ProductsPage = () => {
       setPriceCarr(snapshot.child("price").val());
     });
 
+    firebase.database().ref("Peach Cobbler Pound Cake").once("value", snapshot => {
+      setNamePCPC(snapshot.child("name").val());
+      setImagePCPC(snapshot.child("image").val());
+      setDescriptionPCPC(snapshot.child("description").val());
+      setPricePCPC(snapshot.child("price").val());
+    });
+
 
 
     //treats
@@ -235,7 +247,7 @@ const ProductsPage = () => {
       setPricePB(snapshot.child("price").val());
     });
 
-    
+
     firebase.database().ref("Carrot Cake MINIs").once("value", snapshot => {
       setNameCCM(snapshot.child("name").val());
       setImageCCM(snapshot.child("image").val());
@@ -288,9 +300,10 @@ const ProductsPage = () => {
 
                 <ProductCard name={nameLC} img={imageLC} des={descriptionLC} price={priceLC} isCookie={false} />
                 <ProductCard name={nameRV} img={imageRV} des={descriptionRV} price={priceRV} isCookie={false} />
-                
+
                 <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false} />
                 <ProductCard name={nameCarr} img={imageCarr} des={descriptionCarr} price={priceCarr} isCookie={false} />
+                <ProductCard name={namePCPC} img={imagePCPC} des={descriptionPCPC} price={pricePCPC} isCookie={false} />
               </div>
 
               <h1 className="product-title text-center mt-5">Treats</h1>
