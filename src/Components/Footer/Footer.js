@@ -40,7 +40,7 @@ const Footer = () => {
                 </div>
                 <div className="row">
                     <div className="col-md-11 mt-4">
-                        <span className="text-center"><p className="copyright text-muted">©2022 by <a href="https://github.com/MrGDS2" className="my-credit">MrGDS2</a></p></span>
+                        <span className="text-center"><p className="copyright text-muted">©2024 by <a href="https://github.com/MrGDS2" className="my-credit">MrGDS2</a></p></span>
 
                     </div>
                 </div>
