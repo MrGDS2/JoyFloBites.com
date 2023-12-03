@@ -73,14 +73,7 @@ const ProductsPage = () => {
   const [descriptionRV, setDescriptionRV] = useState('');
   const [priceRV, setPriceRV] = useState('');
 
-  //pound
-  const [namePD, setNamePD] = useState('');
-  const [imagePD, setImagePD] = useState('');
-  const [descriptionPD, setDescriptionPD] = useState('');
-  const [pricePD, setPricePD] = useState('');
-
-
-
+ 
   //LousianaCrunch
   const [nameLC, setNameLC] = useState('');
   const [imageLC, setImageLC] = useState('');
@@ -221,13 +214,7 @@ const ProductsPage = () => {
       setPriceBPD(snapshot.child("price").val());
     });
 
-    firebase.database().ref("Pound Cake").once("value", snapshot => {
-      setNamePD(snapshot.child("name").val());
-      setImagePD(snapshot.child("image").val());
-      setDescriptionPD(snapshot.child("description").val());
-      setPricePD(snapshot.child("price").val());
-    });
-
+   
     firebase.database().ref("Carrot Cake").once("value", snapshot => {
       setNameCarr(snapshot.child("name").val());
       setImageCarr(snapshot.child("image").val());
@@ -316,7 +303,6 @@ const ProductsPage = () => {
 
                 <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false} />
                 <ProductCard name={nameCarr} img={imageCarr} des={descriptionCarr} price={priceCarr} isCookie={false} />
-                <ProductCard name={namePD} img={imagePD} des={descriptionPD} price={pricePD} isCookie={false} />
                 <ProductCard name={namePCPC} img={imagePCPC} des={descriptionPCPC} price={pricePCPC} isCookie={false} />
               </div>
 
