@@ -149,10 +149,14 @@ const OrderModule = (props) => {
                         {/* PayPalButton */}
 
                         <CheckOutButton
-                            name={fullName} address={deliveryAddress}
-                            toggle={toggle} phone={phoneNumber}
+                            name={fullName}
+                            address={deliveryAddress}
+                            specialNote={specialNote}
+                            toggle={toggle}
+                            phone={phoneNumber}
                             email={email}
-                            isVerified={isVerified} eta={date}
+                            isVerified={isVerified}
+                            eta={date}
                             item={itemName}
                             modal={modal}
                             price={isCookie ? cookiePrice : props.price}
