@@ -32,6 +32,7 @@ class QuantityButton extends Component {
       eta: this.props.eta,
       price: this.state.total,
       deliveryAddress: this.props.address,
+      specialNote: this.props.specialNote,
       phoneNumber: this.props.phone,
       item: this.props.item,
       amount: this.state.clicks - 1
@@ -131,7 +132,7 @@ class QuantityButton extends Component {
           <div className="container ml-5" id="checkout-btn">
             <Button onClick={() => this.setState({ checkout: true })}
               size="lg" className="mb-5" disabled={!this.props.isEnabled} >
-              {this.props.isEnabled?'Click to Complete Checkout':this.state.button}</Button>
+              {this.props.isEnabled ? 'Click to Complete Checkout' : this.state.button}</Button>
           </div>
 
         )}
