@@ -1,19 +1,22 @@
-.bhm-primary{
+.bhm-primary {
     background-color: black;
 }
 
-.modal-head-order{
+.modal-head-order {
     background-color: black;
     display: block;
     border-bottom: 0px !important;
 }
-.x-btn{
+
+.x-btn {
     color: white;
 }
-.side-note{
-    color:blue;
+
+.side-note {
+    color: blue;
 }
-.react-calendar.calendar{
+
+.react-calendar.calendar {
     margin-left: 62px;
 }
 
@@ -23,13 +26,15 @@
         width: auto;
         margin-right: auto;
     }
-    #checkout-btn{
+
+    #checkout-btn {
         margin: auto;
         width: 50%;
-        
+
         padding: 10px;
     }
-    #paypal-btns{
+
+    #paypal-btns {
         position: relative;
         display: inline-block;
         width: 100%;
@@ -42,7 +47,7 @@
         margin-right: auto;
     }
 
-    .react-calendar.calendar{
+    .react-calendar.calendar {
         margin-left: 0px;
     }
 
