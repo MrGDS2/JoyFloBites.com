@@ -97,7 +97,7 @@ class QuantityButton extends Component {
     return (
 
       <div>
-
+        <h6 className='side-note-price'><b>*Price subject to change for delivery</b></h6>
         <div className="row">
           <div className="col-md-6">
             <Button variant="outline-dark" className="ml-2 mr-4" onClick={this.IncrementItem}>+</Button>
@@ -110,6 +110,7 @@ class QuantityButton extends Component {
 
             <p className="ml-md-4  text-center total-price">Total: ${this.state.total} </p>
           </div>
+
         </div>
 
         {this.state.checkout ? (

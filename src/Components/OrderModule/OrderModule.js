@@ -163,6 +163,7 @@ const OrderModule = (props) => {
                         />
 
                     </Form>
+
                 </ModalBody>
                 <ModalFooter>
                 </ModalFooter>
