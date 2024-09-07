@@ -73,7 +73,7 @@ const ProductsPage = () => {
   const [descriptionRV, setDescriptionRV] = useState('');
   const [priceRV, setPriceRV] = useState('');
 
- 
+
   //LousianaCrunch
   const [nameLC, setNameLC] = useState('');
   const [imageLC, setImageLC] = useState('');
@@ -99,6 +99,11 @@ const ProductsPage = () => {
   const [descriptionPCPC, setDescriptionPCPC] = useState('');
   const [pricePCPC, setPricePCPC] = useState('');
 
+  //Strawberry Crunch Cake
+  const [nameSCC, setNameSCC] = useState('');
+  const [imageSCC, setImageSCC] = useState('');
+  const [descriptionSCC, setDescriptionSCC] = useState('');
+  const [priceSCC, setPriceSCC] = useState('');
 
 
   /***Cultural treat */
@@ -214,7 +219,7 @@ const ProductsPage = () => {
       setPriceBPD(snapshot.child("price").val());
     });
 
-   
+
     firebase.database().ref("Carrot Cake").once("value", snapshot => {
       setNameCarr(snapshot.child("name").val());
       setImageCarr(snapshot.child("image").val());
@@ -227,6 +232,13 @@ const ProductsPage = () => {
       setImagePCPC(snapshot.child("image").val());
       setDescriptionPCPC(snapshot.child("description").val());
       setPricePCPC(snapshot.child("price").val());
+    });
+
+    firebase.database().ref("Strawberry Crunch Cake").once("value", snapshot => {
+      setNameSCC(snapshot.child("name").val());
+      setImageSCC(snapshot.child("image").val());
+      setDescriptionSCC(snapshot.child("description").val());
+      setPriceSCC(snapshot.child("price").val());
     });
 
 
@@ -304,6 +316,7 @@ const ProductsPage = () => {
                 <ProductCard name={nameBPD} img={imageBPD} des={descriptionBPD} price={priceBPD} isCookie={false} />
                 <ProductCard name={nameCarr} img={imageCarr} des={descriptionCarr} price={priceCarr} isCookie={false} />
                 <ProductCard name={namePCPC} img={imagePCPC} des={descriptionPCPC} price={pricePCPC} isCookie={false} />
+                <ProductCard name={nameSCC} img={imageSCC} des={descriptionSCC} price={priceSCC} isCookie={false} />
               </div>
 
               <h1 className="product-title text-center mt-5">Treats</h1>
