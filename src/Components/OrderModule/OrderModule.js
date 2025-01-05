@@ -1,3 +1,16 @@
+/**
+ * This class holds all function for the orderModule
+ *
+ * @author MrGDS2
+ * @version 1.1.25.0
+ * 
+ * date: 2020,2025
+ * 
+ * title   flag   date    name     description
+ * _____   _____  _____   _____     ___________
+ * BugFix  00     1/4/25  GDS:      Cookie amount should not show up on non-cookie Order modules
+ */
+
 import React, { useState, useEffect } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FormFeedback, Form, FormGroup, Label, Input } from 'reactstrap';
@@ -15,6 +28,10 @@ import './OrderModule.scss';
 
 const OrderModule = (props) => {
 
+    let history = useHistory();
+    let itemName = history.location.state.name;
+    let isCookie = history.location.state.isCookie;
+
     const [modal, setModal] = useState(false);
     const [isVerified, setVerification] = useState(false);
     const [date, onDateChange] = useState(new Date());
@@ -26,10 +43,7 @@ const OrderModule = (props) => {
     const [cookieSize, setCookieSize] = useState(12);
     const [cookiePrice, setCookiePrice] = useState('');
     const [specialNote, setSpecialNote] = useState('');
-
-    let history = useHistory();
-    let itemName = history.location.state.name;
-    let isCookie = history.location.state.isCookie;
+    const [showField, setShowField] = useState(isCookie);//@00A
 
     const toggle = () => setModal(!modal);
 
@@ -99,13 +113,16 @@ const OrderModule = (props) => {
                         </FormGroup>
 
                         <FormGroup className="form-group required">
-
-                            <Label for="phone" className="d-block text-left">Cookie Amount</Label>
-                            <Input type="select" name="amount" value={cookieSize} onChange={e => setCookieSize(e.target.value)}
-                                title="Set cookie amount" disabled={!isCookie}>
-                                <option disabled={true} > -- Select Cookie Amount -- </option>
-                                <option>12</option>
-                            </Input>
+                            {showField && ( /*Now only shows cookie amount when item is a cookie @00C*/
+                                <div>
+                                    <Label for="phone" className="d-block text-left" id="showField">Cookie Amount</Label>
+                                    <Input type="select" id="showField" name="amount" value={cookieSize} onChange={e => setCookieSize(e.target.value)}
+                                        title="Set cookie amount" >
+                                        <option> -- Select Cookie Amount -- </option> {/*@00C*/}
+                                        <option>12</option>
+                                    </Input>
+                                </div>
+                            )}
                         </FormGroup>
                         <FormGroup>
                             <h6 className='side-note'><b>*Please allow up to 5 business days to handle order request</b></h6>
