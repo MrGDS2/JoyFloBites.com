@@ -43,7 +43,7 @@ const OrderModule = (props) => {
     const [cookieSize, setCookieSize] = useState(12);
     const [cookiePrice, setCookiePrice] = useState('');
     const [specialNote, setSpecialNote] = useState('');
-    const [showField, setShowField] = useState(isCookie);//@00A
+    const [showField] = useState(isCookie);//@00A
 
     const toggle = () => setModal(!modal);
 
