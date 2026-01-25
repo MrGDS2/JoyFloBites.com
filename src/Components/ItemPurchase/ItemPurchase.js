@@ -1,6 +1,18 @@
+/**
+ * This class holds all function for the orderModule
+ *
+ * @author MrGDS2
+ * @version 1.1.26.0
+ * 
+ * date: 2020, 2026
+ * 
+ * title   flag   date    name     description
+ * _____   _____  _____   _____     ___________
+ * 26updte 00     1/24/26  GDS:      updated image display for mobile displays
+ */
+
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import AutoFitImage from 'react-image-autofit-frame';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import LikeButton from '../LikeButton/LikeButton';
 import './ItemPurchase.scss';
@@ -15,11 +27,11 @@ const ItemPurchase = () => {
         <React.Fragment>
  <div className="container">
             <div className="row mt-5 pb-5">
-              <div className="col-md-6 item-image" id="second">
-              <AutoFitImage className="auto-image" frameWidth="600px" frameHeight="600px" imgSrc={history.location.state.img} alt="main-img"/>
+              <div className="col-md-6 item-image" id="item-image">
+               <img  className="item-image" width="600px" height="600px" src={history.location.state.img} alt="main-img" />
               </div>
               <div className="col-md-6">
-               <div className="container item-info  ml-5 mt-5 text-center" id="first">
+               <div className="container item-info  ml-5 mt-5 text-center" id="item-info">
                    <div className="row mb-5 ">
                        <div className="col-md-12">
                          <h1 className="mt-5 item-title">JOYFLO BITES ™ {history.location.state.name}  </h1>
@@ -37,6 +49,10 @@ const ItemPurchase = () => {
                          <div className="row mt-5 ">
                                <div className="col-md-12 mb-5">
                            {/* <button className="order-btn">Order Today</button> */}
+                          <div className="col-md-6 item-image" id="mini-item-image">
+                          <img  className="item-image" width="300px" height="300px"
+                           src={history.location.state.img} alt="main-img" />
+                          </div>
                            <OrderModule price={history.location.state.price} isCookie={history.location.state.isCookie}/>
                                </div>
                                </div>
