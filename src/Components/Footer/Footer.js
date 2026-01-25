@@ -2,14 +2,15 @@
  * This class holds all function for the orderModule
  *
  * @author MrGDS2
- * @version 1.1.25.0
+ * @version 1.1.26.0
  * 
- * date: 2020, 2025
+ * date: 2020, 2026
  * 
  * title   flag   date    name     description
  * _____   _____  _____   _____     ___________
  * BugFix  00     1/4/25  GDS:      Cookie amount should not show up on non-cookie Order modules
- */
+ * Update  01     1/24/26 GDS:      Updated footer for 2026
+*/
 import React from 'react';
 import { SocialIcon } from 'react-social-icons';
 import floIcon from '../../Images/joyflo-bites-v1.png';
@@ -52,7 +53,7 @@ const Footer = () => {
                 </div>
                 <div className="row">
                     <div className="col-md-11 mt-4">{/*@00C*/}
-                        <span className="text-center"><p className="copyright text-muted">©2025 by <a href="https://github.com/MrGDS2" className="my-credit">MrGDS2</a></p></span>
+                        <span className="text-center"><p className="copyright text-muted">©2026 by <a href="https://github.com/MrGDS2" className="my-credit">MrGDS2</a></p></span>
 
                     </div>
                 </div>

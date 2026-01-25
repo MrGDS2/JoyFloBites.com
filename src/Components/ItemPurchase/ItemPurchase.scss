@@ -15,6 +15,15 @@ $btn-hover-text: black;
     color: whitesmoke;
 }
 
+.item-image{
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+#mini-item-image {
+    display: none;
+       
+}
+
 .order-btn {
     font-weight: bold;
     border: 2px 2px 2px 2px 2px#FFFFFF;
@@ -41,15 +50,19 @@ $btn-hover-text: black;
         width: 324px;   
     }
 
-    #second {
+    #item-image {
         display: none; 
         order: 2!important;
        
-       }
-    #first {
+     }
+    #mini-item-image {
+        display: block;
+        margin-bottom: 2rem;
+    }
+
+    #item-info {
         order: 1!important;
         margin-left: 0rem !important;
-     }
+    }
    
-    
 }
